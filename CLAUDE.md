@@ -17,6 +17,8 @@ npm run build    # production build to dist/
 npm run preview  # serve the dist/ build
 ```
 
+Every push to `main` builds the site and deploys `dist/` to GitHub Pages (`.github/workflows/deploy.yml`) at https://tbonator.github.io/Ausome-Learning-Minds/. `base: './'` in `vite.config.js` keeps asset URLs relative so the sub-path works.
+
 There are no tests and no linter.
 
 ## Architecture

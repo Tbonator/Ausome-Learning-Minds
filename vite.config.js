@@ -3,6 +3,8 @@ import { defineConfig } from 'vite';
 
 // Multi-page site: add each new HTML page here so it is included in the build.
 export default defineConfig({
+  // Relative asset URLs so the build works under any sub-path (e.g. GitHub Pages /Ausome-Learning-Minds/).
+  base: './',
   build: {
     rollupOptions: {
       input: {
