@@ -52,7 +52,7 @@ There are no tests and no linter.
 
 - Phone numbers: 064 909 7710 / 064 510 9728, linked as `tel:+27...`.
 - Address: 17 Toinette St, Ext 2, Brackenhurst, Alberton, 1448.
-- Text in `[square brackets]` is a placeholder still waiting for real content, for example video descriptions, opening hours and photos.
+- Text in `[square brackets]` is a placeholder still waiting for real content, for example video descriptions and opening hours. Photos supplied by the owner live in `src/images/`; the `.hero-photo` class frames a photo in a hero.
 - `programs.html` uses the six programs from the live site. `admission.html` shows the fees and links to the online forms.
 - The live site at https://ausomelearningminds.co.za/ sits behind bot verification and can't be fetched automatically. Ask the user for content from it.
 - Fee content shown on `admission.html`. These are the 2027 intake fees; the live site also says "Registration Now open for 2026".
