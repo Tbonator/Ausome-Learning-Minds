@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Apply online for enrollment at Ausome Learning Minds." />
+    <title>Application form | Ausome Learning Minds</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/css/main.css" />
+  </head>
+  <body>
+    <header class="hero hero--page">
+      <div class="container">
+        <nav class="nav" aria-label="Main">
+          <a href="index.html" class="nav__logo">Ausome <span>Learning</span> Minds</a>
+          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+            <span aria-hidden="true">&#9776;</span><span class="visually-hidden">Menu</span>
+          </button>
+          <ul class="nav__links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="admission.html" aria-current="page">Admission &amp; fees</a></li>
+            <li><a href="find-us.html">Find us</a></li>
+          </ul>
+        </nav>
+
+        <div class="hero__inner">
+          <div>
+            <span class="pill">Apply online</span>
+            <h1 class="hero__title">Application <em>form</em></h1>
+            <p class="hero__lead">Fields marked <strong>*</strong> are required. It takes about 15 minutes. Please have your ID numbers and medical aid details ready.</p>
+          </div>
+          <div class="hero__visual" aria-hidden="true">
+            <img class="shape cube" src="src/images/cube-red.svg" alt="" style="--x: 14%; --y: 12%; --s: 80px; --r: -12deg" />
+            <span class="shape sphere sphere--yellow" style="--x: 64%; --y: 0%; --s: 64px; --d: -2s"></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="section container">
+      <!--
+        SUBMISSIONS: set data-endpoint to the URL that receives the form (e.g. a Formspree form URL).
+        While it is empty, the form validates but tells the parent to phone instead of sending.
+      -->
+      <form class="online-form" data-online-form data-endpoint="" novalidate>
+        <input type="hidden" name="_subject" value="New application form - Ausome Learning Minds" />
+        <input type="hidden" name="Form" value="Application form" />
+        <div class="visually-hidden" aria-hidden="true">
+          <label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+        </div>
+
+        <!-- 1. Learner -->
+        <fieldset class="form-section">
+          <legend><span class="form-section__num">1</span> Learner information</legend>
+          <div class="fields">
+            <div class="field">
+              <label for="l-names">Full names <span class="req">*</span></label>
+              <input id="l-names" name="Learner - Full names" required />
+            </div>
+            <div class="field">
+              <label for="l-preferred">Preferred name</label>
+              <input id="l-preferred" name="Learner - Preferred name" />
+            </div>
+            <div class="field">
+              <label for="l-surname">Surname <span class="req">*</span></label>
+              <input id="l-surname" name="Learner - Surname" required />
+            </div>
+            <div class="field">
+              <label for="l-dob">Date of birth <span class="req">*</span></label>
+              <input id="l-dob" name="Learner - Date of birth" type="date" required />
+            </div>
+            <div class="field">
+              <label for="l-id">ID number</label>
+              <input id="l-id" name="Learner - ID number" inputmode="numeric" pattern="[0-9]{13}" title="13-digit South African ID number" />
+              <span class="hint">13 digits</span>
+            </div>
+            <div class="field">
+              <label for="l-gender">Gender <span class="req">*</span></label>
+              <select id="l-gender" name="Learner - Gender" required>
+                <option value="">Select…</option>
+                <option>Female</option>
+                <option>Male</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="l-religion">Religious denomination</label>
+              <input id="l-religion" name="Learner - Religious denomination" />
+            </div>
+            <div class="field">
+              <label for="l-language">Home language <span class="req">*</span></label>
+              <input id="l-language" name="Learner - Home language" required />
+            </div>
+            <div class="field">
+              <label for="l-school">Last school attended</label>
+              <input id="l-school" name="Learner - Last school attended" />
+            </div>
+            <div class="field">
+              <label for="l-grade">To be enrolled in grade <span class="req">*</span></label>
+              <select id="l-grade" name="Learner - Grade to enroll in" required>
+                <option value="">Select…</option>
+                <option>Grade RR</option>
+                <option>Grade R</option>
+                <option>Grade 1</option>
+                <option>Grade 2</option>
+                <option>Grade 3</option>
+                <option>Grade 4</option>
+                <option>Grade 5</option>
+                <option>Grade 6</option>
+                <option>Grade 7</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="l-start">Enrollment date <span class="req">*</span></label>
+              <input id="l-start" name="Learner - Enrollment date" type="date" required />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 2. Parents -->
+        <fieldset class="form-section">
+          <legend><span class="form-section__num">2</span> Parent / guardian information</legend>
+
+          <h3 class="form-subhead">Father / guardian</h3>
+          <div class="fields">
+            <div class="field">
+              <label for="p1-names">Full names <span class="req">*</span></label>
+              <input id="p1-names" name="Father/guardian - Full names" required autocomplete="given-name" />
+            </div>
+            <div class="field">
+              <label for="p1-surname">Surname <span class="req">*</span></label>
+              <input id="p1-surname" name="Father/guardian - Surname" required autocomplete="family-name" />
+            </div>
+            <div class="field">
+              <label for="p1-id">ID number <span class="req">*</span></label>
+              <input id="p1-id" name="Father/guardian - ID number" required inputmode="numeric" pattern="[0-9]{13}" title="13-digit South African ID number" />
+              <span class="hint">13 digits</span>
+            </div>
+            <div class="field">
+              <label for="p1-email">Email address <span class="req">*</span></label>
+              <input id="p1-email" name="Father/guardian - Email" type="email" required autocomplete="email" />
+            </div>
+            <div class="field field--full">
+              <label for="p1-home">Home address <span class="req">*</span></label>
+              <textarea id="p1-home" name="Father/guardian - Home address" rows="2" required autocomplete="street-address"></textarea>
+            </div>
+            <div class="field field--full">
+              <label for="p1-postal">Postal address</label>
+              <textarea id="p1-postal" name="Father/guardian - Postal address" rows="2"></textarea>
+            </div>
+            <div class="field">
+              <label for="p1-cell">Cell number <span class="req">*</span></label>
+              <input id="p1-cell" name="Father/guardian - Cell" type="tel" required autocomplete="tel" />
+            </div>
+            <div class="field">
+              <label for="p1-work">Work number</label>
+              <input id="p1-work" name="Father/guardian - Work tel" type="tel" />
+            </div>
+            <div class="field">
+              <label for="p1-hometel">Home number</label>
+              <input id="p1-hometel" name="Father/guardian - Home tel" type="tel" />
+            </div>
+            <div class="field">
+              <label for="p1-employer">Name of employer</label>
+              <input id="p1-employer" name="Father/guardian - Employer" />
+            </div>
+            <div class="field">
+              <label for="p1-occupation">Occupation</label>
+              <input id="p1-occupation" name="Father/guardian - Occupation" />
+            </div>
+          </div>
+
+          <h3 class="form-subhead">Mother / guardian <span class="hint">(leave blank if not applicable)</span></h3>
+          <div class="fields">
+            <div class="field">
+              <label for="p2-names">Full names</label>
+              <input id="p2-names" name="Mother/guardian - Full names" />
+            </div>
+            <div class="field">
+              <label for="p2-surname">Surname</label>
+              <input id="p2-surname" name="Mother/guardian - Surname" />
+            </div>
+            <div class="field">
+              <label for="p2-id">ID number</label>
+              <input id="p2-id" name="Mother/guardian - ID number" inputmode="numeric" pattern="[0-9]{13}" title="13-digit South African ID number" />
+              <span class="hint">13 digits</span>
+            </div>
+            <div class="field">
+              <label for="p2-population">Population group</label>
+              <input id="p2-population" name="Mother/guardian - Population group" />
+            </div>
+            <div class="field field--full">
+              <label for="p2-home">Home address</label>
+              <textarea id="p2-home" name="Mother/guardian - Home address" rows="2"></textarea>
+            </div>
+            <div class="field field--full">
+              <label for="p2-postal">Postal address</label>
+              <textarea id="p2-postal" name="Mother/guardian - Postal address" rows="2"></textarea>
+            </div>
+            <div class="field">
+              <label for="p2-cell">Cell number</label>
+              <input id="p2-cell" name="Mother/guardian - Cell" type="tel" />
+            </div>
+            <div class="field">
+              <label for="p2-work">Work number</label>
+              <input id="p2-work" name="Mother/guardian - Work tel" type="tel" />
+            </div>
+            <div class="field">
+              <label for="p2-hometel">Home number</label>
+              <input id="p2-hometel" name="Mother/guardian - Home tel" type="tel" />
+            </div>
+            <div class="field">
+              <label for="p2-email">Email address</label>
+              <input id="p2-email" name="Mother/guardian - Email" type="email" />
+            </div>
+            <div class="field">
+              <label for="p2-employer">Name of employer</label>
+              <input id="p2-employer" name="Mother/guardian - Employer" />
+            </div>
+            <div class="field">
+              <label for="p2-occupation">Occupation</label>
+              <input id="p2-occupation" name="Mother/guardian - Occupation" />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 3. Emergency -->
+        <fieldset class="form-section">
+          <legend><span class="form-section__num">3</span> Emergency contact <span class="hint">(not the parent/guardian)</span></legend>
+          <div class="fields">
+            <div class="field">
+              <label for="e-names">Full names <span class="req">*</span></label>
+              <input id="e-names" name="Emergency contact - Full names" required />
+            </div>
+            <div class="field">
+              <label for="e-surname">Surname <span class="req">*</span></label>
+              <input id="e-surname" name="Emergency contact - Surname" required />
+            </div>
+            <div class="field">
+              <label for="e-relation">Relation to learner <span class="req">*</span></label>
+              <input id="e-relation" name="Emergency contact - Relation to learner" required />
+            </div>
+            <div class="field">
+              <label for="e-cell">Cell number <span class="req">*</span></label>
+              <input id="e-cell" name="Emergency contact - Cell" type="tel" required />
+            </div>
+            <div class="field">
+              <label for="e-work">Work number</label>
+              <input id="e-work" name="Emergency contact - Work tel" type="tel" />
+            </div>
+            <div class="field">
+              <label for="e-home">Home number</label>
+              <input id="e-home" name="Emergency contact - Home tel" type="tel" />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 4. Medical -->
+        <fieldset class="form-section">
+          <legend><span class="form-section__num">4</span> Medical information</legend>
+          <div class="fields">
+            <div class="field">
+              <label for="m-aid">Medical aid name</label>
+              <input id="m-aid" name="Medical - Medical aid name" />
+            </div>
+            <div class="field">
+              <label for="m-number">Medical aid number</label>
+              <input id="m-number" name="Medical - Medical aid number" />
+            </div>
+            <div class="field">
+              <label for="m-member">Name of main member</label>
+              <input id="m-member" name="Medical - Main member name" />
+            </div>
+            <div class="field">
+              <label for="m-member-id">ID number of main member</label>
+              <input id="m-member-id" name="Medical - Main member ID number" inputmode="numeric" pattern="[0-9]{13}" title="13-digit South African ID number" />
+            </div>
+            <div class="field">
+              <label for="m-doctor">Doctor's name <span class="req">*</span></label>
+              <input id="m-doctor" name="Medical - Doctor's name" required />
+            </div>
+            <div class="field">
+              <label for="m-doctor-tel">Doctor's tel number <span class="req">*</span></label>
+              <input id="m-doctor-tel" name="Medical - Doctor's tel" type="tel" required />
+            </div>
+            <div class="field field--full">
+              <label for="m-conditions">Medical conditions</label>
+              <textarea id="m-conditions" name="Medical - Conditions" rows="3" placeholder="e.g. allergies, asthma. Write &quot;None&quot; if not applicable."></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 5. Payment option -->
+        <fieldset class="form-section">
+          <legend><span class="form-section__num">5</span> Payment</legend>
+          <p class="form-text">I select to pay the school fees account as follows: <span class="req">*</span></p>
+          <div class="choice-group">
+            <label class="choice"><input type="radio" name="Payment option" value="Monthly" required /> Monthly</label>
+            <label class="choice"><input type="radio" name="Payment option" value="Per term" /> Per term</label>
+            <label class="choice"><input type="radio" name="Payment option" value="Annually" /> Annually</label>
+          </div>
+        </fieldset>
+
+        <!-- 6. Collection -->
+        <fieldset class="form-section">
+          <legend><span class="form-section__num">6</span> Authorisation for collection</legend>
+          <p class="form-text">I hereby authorise the following person/s to collect my child/children from Ausome Learning Minds:</p>
+          <div class="fields">
+            <div class="field field--full">
+              <label for="c-1">Person 1 (name and cell number) <span class="req">*</span></label>
+              <input id="c-1" name="Authorised to collect - Person 1" required />
+            </div>
+            <div class="field field--full">
+              <label for="c-2">Person 2 (name and cell number)</label>
+              <input id="c-2" name="Authorised to collect - Person 2" />
+            </div>
+            <div class="field field--full">
+              <label for="c-3">Person 3 (name and cell number)</label>
+              <input id="c-3" name="Authorised to collect - Person 3" />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 7. Terms -->
+        <fieldset class="form-section">
+          <legend><span class="form-section__num">7</span> Terms and conditions</legend>
+          <p class="form-text">Please open and read each section, then tick to confirm. Ticking replaces initialling each page of the paper form.</p>
+
+          <div class="terms">
+            <details>
+              <summary>Declarations</summary>
+              <ol>
+                <li>I declare that I am the parent and/or legal guardian of the learner and that the learner and I must comply with the terms and conditions of this contract for the learner to remain enrolled at this school.</li>
+                <li>As a parent/guardian by signing this contract, I confirm that I understand and agree to the rights and duties imposed on me and my child in this contract including the attachments to it and the policies of the School, such as paying fees on time, being responsible for the behavior of my child, and ensuring that my child and I comply with all policies of the school which list is not exhaustive.</li>
+              </ol>
+            </details>
+            <label class="choice choice--agree"><input type="checkbox" name="Agreed - Declarations" value="Yes" required /> I have read and agree to the Declarations <span class="req">*</span></label>
+
+            <details>
+              <summary>Code of conduct</summary>
+              <ol>
+                <li>My child and I undertake to uphold and adhere to the Code of Conduct annexed hereto, failing which I understand my child may be suspended from school.</li>
+                <li>Furthermore, I agree to provide my child with the necessary books and stationery as specified.</li>
+              </ol>
+            </details>
+            <label class="choice choice--agree"><input type="checkbox" name="Agreed - Code of conduct" value="Yes" required /> I have read and agree to the Code of conduct <span class="req">*</span></label>
+
+            <details>
+              <summary>Financials</summary>
+              <ol>
+                <li>I agree to pay all the School fees, including admin fees, development fees, extra costs, and any increase in the aforementioned fees, as may be determined by the School from time to time.</li>
+                <li>All such fees are payable in advance by the 3rd of each month. I furthermore understand that fees not paid by the 3rd of each month will result in the child being suspended, and that any School fees paid annually will <strong>not</strong> be refunded if the child leaves during the school year.</li>
+                <li>I understand and accept that the School may demand payment of the fees from me separately or jointly with any other parent and/or legal guardian whose duty will continue even after the termination of this contract, and that such outstanding monies are payable by me to the School on demand.</li>
+                <li>In the event that the School takes legal action against me, I will be liable for all legal fees on an attorney-client scale, collection costs and commission, interest, and tracing fees.</li>
+                <li>I undertake to immediately inform the school if I do not receive an invoice/statement at the start of the academic year; however, I understand that payment of monthly fees is not subject to the presentation of a statement.</li>
+                <li>I accept that interest on overdue accounts shall be charged at 15% and that such interest shall be payable by me on demand from the School.</li>
+              </ol>
+            </details>
+            <label class="choice choice--agree"><input type="checkbox" name="Agreed - Financials" value="Yes" required /> I have read and agree to the Financials <span class="req">*</span></label>
+
+            <details>
+              <summary>School activities, indemnity and medical emergency</summary>
+              <p><strong>School activities.</strong> I give my consent for my child to take part in any of the activities of the School, including all games, athletics, educational tours, sports tours, and excursions of any nature whatsoever, that the School considers desirable.</p>
+              <p><strong>Indemnity.</strong> I understand fully and accept that all activities such as those mentioned above shall be undertaken at my child's own risk and I undertake to indemnify the School, the Principal, the members of its staff, and such other people that may be involved with or assisting my child in the pursuit of any of the aforesaid activities, against and from any and/or claims whatsoever or injury to my child in the course of any such activities, provided all reasonable care was taken by those indemnified.</p>
+              <p><strong>Medical emergency.</strong> I permit the School to consent to any medical procedures that must urgently be performed on my child if neither I nor the emergency person listed above can be reached to make such emergency decisions.</p>
+            </details>
+            <label class="choice choice--agree"><input type="checkbox" name="Agreed - Activities, indemnity and medical emergency" value="Yes" required /> I have read and agree to School activities, Indemnity and Medical emergency <span class="req">*</span></label>
+
+            <details>
+              <summary>Termination</summary>
+              <ol>
+                <li>I acknowledge and agree that I shall be obliged to give 1 (one) term's prior written notice of my intention to withdraw my child from the School, regardless of what my reason for withdrawal might be, and that in the event of my failing to give such proper written notice in advance, a cancellation fee equal to 3 (three) months school fees shall be payable by me to the School on demand, which cancellation fee I agree is reasonable.</li>
+                <li>The School shall be entitled to terminate the enrolment of my child as a learner at the School under the following circumstances:
+                  <ol>
+                    <li>Summarily, and with immediate effect, if the child is guilty of an offense which, in the sole opinion of the School, renders his/her continued enrolment at the School impossible, in which event I will be liable for the annual school fees.</li>
+                    <li>The School reserves the right to remove or suspend my child from the School if fees remain unpaid for more than 60 (sixty) days.</li>
+                  </ol>
+                </li>
+              </ol>
+            </details>
+            <label class="choice choice--agree"><input type="checkbox" name="Agreed - Termination" value="Yes" required /> I have read and agree to Termination <span class="req">*</span></label>
+
+            <details>
+              <summary>Credit information, applicable law, breach of contract and entire agreement</summary>
+              <p><strong>Credit information.</strong> I hereby consent to the School or a third party appointed by the School performing security checks, including but not limited to criminal checks and credit checks, for the duration of this contract. I furthermore consent to the disclosure and exchange of my personal financial information by the School to a credit bureau or financial institution in accordance with the National Credit Act.</p>
+              <p><strong>Applicable law.</strong> This contract and any dispute originating from it will be governed and construed within the confines of the Law of South Africa.</p>
+              <p><strong>Breach of contract.</strong> In the event that I commit a breach of contract of any of the terms of this Agreement, the School may, in its sole discretion: refuse my child entry into the school's premises until the breach has been remedied; and/or claim damages from me; and/or take whatever legal steps that may be necessary.</p>
+              <p><strong>Entire agreement.</strong> This contract constitutes the whole agreement between the parties relating to the subject matter hereof. No amendment or consensual cancellation of this contract for any provision or term thereof or of any contract, bill of exchange, or other document issued or executed according to or in terms of the contract, and no settlement of any disputes arising under this contract and no extension of time, waiver or relaxation or suspension of any of the provisions of the terms of this contract or any contract, bill of exchange or other document issued according to or in terms of this contract shall be binding unless recorded in writing and signed by the parent/guardian and the School by the parties.</p>
+            </details>
+            <label class="choice choice--agree"><input type="checkbox" name="Agreed - Credit, law, breach and entire agreement" value="Yes" required /> I have read and agree to Credit information, Applicable law, Breach of contract and Entire agreement <span class="req">*</span></label>
+          </div>
+        </fieldset>
+
+        <!-- 8. Sign -->
+        <fieldset class="form-section">
+          <legend><span class="form-section__num">8</span> Sign and submit</legend>
+          <div class="fields">
+            <div class="field">
+              <label for="s-name">Full name of parent / legal guardian <span class="req">*</span></label>
+              <input id="s-name" name="Signed by" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="s-place">Signed at (town / city) <span class="req">*</span></label>
+              <input id="s-place" name="Signed at" required />
+            </div>
+            <div class="field">
+              <label for="s-date">Date</label>
+              <input id="s-date" name="Date signed" type="date" data-today readonly />
+            </div>
+          </div>
+          <label class="choice choice--agree"><input type="checkbox" name="Electronic signature" value="Yes" required /> I confirm that typing my name above serves as my signature on this contract. <span class="req">*</span></label>
+          <label class="choice choice--agree"><input type="checkbox" name="POPIA consent" value="Yes" required /> I consent to Ausome Learning Minds collecting and using this personal information for admission and school administration. <span class="req">*</span></label>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--blue">Submit application</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </fieldset>
+      </form>
+
+      <div class="form-success" hidden tabindex="-1">
+        <h2>Thank you! Your application has been sent.</h2>
+        <p>We'll be in touch soon. If you have any questions, call us on <a href="tel:+27649097710">064 909 7710</a>.</p>
+        <a href="index.html" class="btn btn--yellow">Back to home</a>
+      </div>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <h3>Ausome Learning Minds</h3>
+            <p>Home-based schooling and tutoring that helps every child learn, grow and thrive.</p>
+          </div>
+          <div>
+            <h3>Contact</h3>
+            <ul>
+              <li><a href="tel:+27649097710">064 909 7710</a></li>
+              <li><a href="tel:+27645109728">064 510 9728</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Explore</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About us</a></li>
+              <li><a href="programs.html">Programs</a></li>
+              <li><a href="find-us.html">Find us</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="footer__bottom">&copy; <span data-year></span> Ausome Learning Minds. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="src/js/main.js"></script>
+  </body>
+</html>

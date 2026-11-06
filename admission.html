@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Admission and fees at Ausome Learning Minds — apply online for enrollment or aftercare." />
+    <title>Admission &amp; fees | Ausome Learning Minds</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/css/main.css" />
+  </head>
+  <body>
+    <header class="hero hero--page">
+      <div class="container">
+        <nav class="nav" aria-label="Main">
+          <a href="index.html" class="nav__logo">Ausome <span>Learning</span> Minds</a>
+          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+            <span aria-hidden="true">&#9776;</span><span class="visually-hidden">Menu</span>
+          </button>
+          <ul class="nav__links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="admission.html" aria-current="page">Admission &amp; fees</a></li>
+            <li><a href="find-us.html">Find us</a></li>
+          </ul>
+        </nav>
+
+        <div class="hero__inner">
+          <div>
+            <span class="pill">Admission</span>
+            <h1 class="hero__title">Ready to enroll? <em>We hope to meet you soon</em></h1>
+            <p class="hero__lead">Our admission process is designed to be simple and supportive, ensuring every child and family feels welcomed as they begin their journey with us.</p>
+            <div class="hero__actions">
+              <a href="apply.html" class="btn btn--yellow">Apply online</a>
+              <a href="aftercare.html" class="btn btn--outline">Aftercare form</a>
+            </div>
+          </div>
+          <div class="hero__visual" aria-hidden="true">
+            <img class="shape cube" src="src/images/cube-yellow.svg" alt="" style="--x: 12%; --y: 10%; --s: 80px; --r: 12deg" />
+            <span class="shape sphere sphere--red" style="--x: 62%; --y: 0%; --s: 64px; --d: -2s"></span>
+            <span class="shape ring" style="--x: 34%; --y: 70%; --s: 110px; --d: -4s"></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section container" aria-labelledby="fees-title">
+        <div class="section-head reveal">
+          <h2 id="fees-title">Our fees</h2>
+          <p>Transparent and flexible fee structures designed to make quality, personalized education accessible for every family.</p>
+        </div>
+
+        <div class="program-grid reveal">
+          <article class="tile tile--blue">
+            <span class="tile__num">01</span>
+            <h3>Registration 2027</h3>
+            <p class="price">R1 000 <small>once-off</small></p>
+            <p>Includes two assessments. A one-time non-refundable registration fee applies. Please note the fee does not guarantee placement for learners.</p>
+          </article>
+
+          <article class="tile tile--yellow">
+            <span class="tile__num">02</span>
+            <h3>Centre fees 2027</h3>
+            <p class="price">R5 000 <small>per month</small></p>
+            <p>Our school fees are structured to provide quality, personalized education while supporting each child's learning journey.</p>
+          </article>
+
+          <article class="tile tile--red">
+            <span class="tile__num">03</span>
+            <h3>Aftercare 2027</h3>
+            <p class="price">R1 200 <small>per month</small></p>
+            <p>Our aftercare program offers a safe and engaging environment for children beyond school hours.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="container" aria-labelledby="forms-title">
+        <div class="section-head reveal">
+          <h2 id="forms-title">Apply online</h2>
+          <p>No printing or scanning. Fill in the form on this website and we'll be in touch.</p>
+        </div>
+
+        <div class="form-links reveal">
+          <a href="apply.html" class="tile tile--map">
+            <div>
+              <span class="tile__num">01</span>
+              <h3>Application form</h3>
+              <p>Begin your child's enrollment process with us.</p>
+              <span class="tile__link">Start application &rarr;</span>
+            </div>
+          </a>
+          <a href="aftercare.html" class="tile tile--map">
+            <div>
+              <span class="tile__num">02</span>
+              <h3>Aftercare form</h3>
+              <p>Register your child for our extended program.</p>
+              <span class="tile__link">Start aftercare form &rarr;</span>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <h3>Ausome Learning Minds</h3>
+            <p>Home-based schooling and tutoring that helps every child learn, grow and thrive.</p>
+          </div>
+          <div>
+            <h3>Contact</h3>
+            <ul>
+              <li><a href="tel:+27649097710">064 909 7710</a></li>
+              <li><a href="tel:+27645109728">064 510 9728</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Explore</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About us</a></li>
+              <li><a href="programs.html">Programs</a></li>
+              <li><a href="find-us.html">Find us</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="footer__bottom">&copy; <span data-year></span> Ausome Learning Minds. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="src/js/main.js"></script>
+  </body>
+</html>

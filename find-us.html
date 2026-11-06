@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Find Ausome Learning Minds — our address, map, directions and contact details." />
+    <title>Find us | Ausome Learning Minds</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/css/main.css" />
+  </head>
+  <body>
+    <header class="hero hero--page">
+      <div class="container">
+        <nav class="nav" aria-label="Main">
+          <a href="index.html" class="nav__logo">Ausome <span>Learning</span> Minds</a>
+          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+            <span aria-hidden="true">&#9776;</span><span class="visually-hidden">Menu</span>
+          </button>
+          <ul class="nav__links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="admission.html">Admission &amp; fees</a></li>
+            <li><a href="find-us.html" aria-current="page">Find us</a></li>
+          </ul>
+        </nav>
+
+        <div class="hero__inner">
+          <div>
+            <span class="pill">Find us</span>
+            <h1 class="hero__title">Come and visit <em>the centre</em></h1>
+          </div>
+          <div class="hero__visual" aria-hidden="true">
+            <img class="shape cube" src="src/images/cube-yellow.svg" alt="" style="--x: 12%; --y: 8%; --s: 80px; --r: 12deg" />
+            <span class="shape sphere sphere--red" style="--x: 64%; --y: 2%; --s: 60px; --d: -2s"></span>
+            <span class="shape ring" style="--x: 38%; --y: 68%; --s: 110px; --d: -4s"></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!--
+        SET THE ADDRESS HERE: change data-address to the centre's full street address.
+        The map, the "Get directions" link and the address text below all use it.
+      -->
+      <section class="section container" aria-labelledby="map-title" data-location data-address="17 Toinette St, Ext 2, Brackenhurst, Alberton, 1448">
+        <div class="location reveal">
+          <div class="map-card">
+            <iframe
+              class="map-card__frame"
+              title="Map showing the location of Ausome Learning Minds"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              hidden
+            ></iframe>
+            <div class="map-card__empty">
+              <svg viewBox="0 0 24 24" width="40" height="40" aria-hidden="true"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 4.5A2.5 2.5 0 1 0 12 11.5 2.5 2.5 0 0 0 12 6.5z" fill="currentColor" /></svg>
+              <p>The map will appear here once the centre's address is added.</p>
+            </div>
+          </div>
+
+          <div class="location__info">
+            <h2 id="map-title">Where to find us</h2>
+
+            <dl class="info-list">
+              <div>
+                <dt>Address</dt>
+                <dd data-address-text>17 Toinette St, Ext 2, Brackenhurst, Alberton, 1448</dd>
+              </div>
+              <div>
+                <dt>Phone</dt>
+                <dd><a href="tel:+27649097710">064 909 7710</a> / <a href="tel:+27645109728">064 510 9728</a></dd>
+              </div>
+              <div>
+                <dt>Opening hours</dt>
+                <dd>[Monday to Friday, opening and closing times]</dd>
+              </div>
+            </dl>
+
+            <div class="hero__actions">
+              <a href="#" class="btn btn--blue" data-directions target="_blank" rel="noopener" hidden>Get directions</a>
+              <a href="tel:+27649097710" class="btn btn--yellow">Call us</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container" aria-labelledby="visit-title">
+        <div class="cta reveal">
+          <h2 id="visit-title">Want to see the centre first?</h2>
+          <p>Book a visit, meet our educators and see how we can support your child.</p>
+          <a href="tel:+27649097710" class="btn btn--yellow">Book a visit</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <h3>Ausome Learning Minds</h3>
+            <p>Home-based schooling and tutoring that helps every child learn, grow and thrive.</p>
+          </div>
+          <div>
+            <h3>Contact</h3>
+            <ul>
+              <li><a href="tel:+27649097710">064 909 7710</a></li>
+              <li><a href="tel:+27645109728">064 510 9728</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Explore</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About us</a></li>
+              <li><a href="programs.html">Programs</a></li>
+              <li><a href="admission.html">Admission &amp; fees</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="footer__bottom">&copy; <span data-year></span> Ausome Learning Minds. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="src/js/main.js"></script>
+  </body>
+</html>

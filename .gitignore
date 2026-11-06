@@ -3,3 +3,7 @@ dist/
 .env
 .DS_Store
 Thumbs.db
+
+# Reference copies of the paper forms (local only)
+Ausome-Learning-Application-Form-2026.pdf
+Aftercare-Agreement-2026-.pdf

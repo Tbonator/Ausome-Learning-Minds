@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Register online for aftercare at Ausome Learning Minds." />
+    <title>Aftercare form | Ausome Learning Minds</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/css/main.css" />
+  </head>
+  <body>
+    <header class="hero hero--page">
+      <div class="container">
+        <nav class="nav" aria-label="Main">
+          <a href="index.html" class="nav__logo">Ausome <span>Learning</span> Minds</a>
+          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+            <span aria-hidden="true">&#9776;</span><span class="visually-hidden">Menu</span>
+          </button>
+          <ul class="nav__links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="admission.html" aria-current="page">Admission &amp; fees</a></li>
+            <li><a href="find-us.html">Find us</a></li>
+          </ul>
+        </nav>
+
+        <div class="hero__inner">
+          <div>
+            <span class="pill">Apply online</span>
+            <h1 class="hero__title">Aftercare <em>agreement</em></h1>
+            <p class="hero__lead">Aftercare runs from 14h00 to 18h00. Fields marked <strong>*</strong> are required.</p>
+          </div>
+          <div class="hero__visual" aria-hidden="true">
+            <img class="shape cube" src="src/images/cube-yellow.svg" alt="" style="--x: 14%; --y: 12%; --s: 80px; --r: 12deg" />
+            <span class="shape sphere sphere--red" style="--x: 64%; --y: 0%; --s: 60px; --d: -2s"></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="section container">
+      <!--
+        SUBMISSIONS: set data-endpoint to the URL that receives the form (e.g. a Formspree form URL).
+        While it is empty, the form validates but tells the parent to phone instead of sending.
+      -->
+      <form class="online-form" data-online-form data-endpoint="" novalidate>
+        <input type="hidden" name="_subject" value="New aftercare form - Ausome Learning Minds" />
+        <input type="hidden" name="Form" value="Aftercare agreement" />
+        <div class="visually-hidden" aria-hidden="true">
+          <label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+        </div>
+
+        <!-- 1. Parent responsible for fees -->
+        <fieldset class="form-section">
+          <legend><span class="form-section__num">1</span> Parent / guardian responsible for fees</legend>
+          <div class="fields">
+            <div class="field">
+              <label for="f-name">Full name <span class="req">*</span></label>
+              <input id="f-name" name="Responsible parent - Full name" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="f-email">Email address <span class="req">*</span></label>
+              <input id="f-email" name="Responsible parent - Email" type="email" required autocomplete="email" />
+            </div>
+            <div class="field field--full">
+              <label for="f-address">Residential address <span class="req">*</span></label>
+              <textarea id="f-address" name="Responsible parent - Residential address" rows="2" required autocomplete="street-address"></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 2. Learners -->
+        <fieldset class="form-section">
+          <legend><span class="form-section__num">2</span> Learners to enroll for aftercare</legend>
+          <p class="form-text">Enter the full name of each child you intend to enroll for aftercare.</p>
+
+          <h3 class="form-subhead">Child 1</h3>
+          <div class="fields">
+            <div class="field">
+              <label for="k1-name">Full name <span class="req">*</span></label>
+              <input id="k1-name" name="Child 1 - Full name" required />
+            </div>
+            <div class="field">
+              <label for="k1-grade">Grade <span class="req">*</span></label>
+              <input id="k1-grade" name="Child 1 - Grade" required />
+            </div>
+            <div class="field field--full">
+              <span class="field__label">Option <span class="req">*</span></span>
+              <div class="choice-group">
+                <label class="choice"><input type="radio" name="Child 1 - Option" value="Including homework" required /> Including homework</label>
+                <label class="choice"><input type="radio" name="Child 1 - Option" value="Excluding homework" /> Excluding homework</label>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="form-subhead">Child 2 <span class="hint">(optional)</span></h3>
+          <div class="fields">
+            <div class="field">
+              <label for="k2-name">Full name</label>
+              <input id="k2-name" name="Child 2 - Full name" />
+            </div>
+            <div class="field">
+              <label for="k2-grade">Grade</label>
+              <input id="k2-grade" name="Child 2 - Grade" />
+            </div>
+            <div class="field field--full">
+              <span class="field__label">Option</span>
+              <div class="choice-group">
+                <label class="choice"><input type="radio" name="Child 2 - Option" value="Including homework" /> Including homework</label>
+                <label class="choice"><input type="radio" name="Child 2 - Option" value="Excluding homework" /> Excluding homework</label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 3. Contacts -->
+        <fieldset class="form-section">
+          <legend><span class="form-section__num">3</span> Contact details</legend>
+
+          <h3 class="form-subhead">Parent / guardian 1</h3>
+          <div class="fields">
+            <div class="field">
+              <label for="g1-name">Name <span class="req">*</span></label>
+              <input id="g1-name" name="Parent 1 - Name" required />
+            </div>
+            <div class="field">
+              <label for="g1-id">ID number <span class="req">*</span></label>
+              <input id="g1-id" name="Parent 1 - ID number" required inputmode="numeric" pattern="[0-9]{13}" title="13-digit South African ID number" />
+              <span class="hint">13 digits</span>
+            </div>
+            <div class="field">
+              <label for="g1-mobile">Mobile number <span class="req">*</span></label>
+              <input id="g1-mobile" name="Parent 1 - Mobile" type="tel" required />
+            </div>
+            <div class="field">
+              <label for="g1-work">Work number</label>
+              <input id="g1-work" name="Parent 1 - Work number" type="tel" />
+            </div>
+          </div>
+
+          <h3 class="form-subhead">Parent / guardian 2 <span class="hint">(optional)</span></h3>
+          <div class="fields">
+            <div class="field">
+              <label for="g2-name">Name</label>
+              <input id="g2-name" name="Parent 2 - Name" />
+            </div>
+            <div class="field">
+              <label for="g2-id">ID number</label>
+              <input id="g2-id" name="Parent 2 - ID number" inputmode="numeric" pattern="[0-9]{13}" title="13-digit South African ID number" />
+              <span class="hint">13 digits</span>
+            </div>
+            <div class="field">
+              <label for="g2-mobile">Mobile number</label>
+              <input id="g2-mobile" name="Parent 2 - Mobile" type="tel" />
+            </div>
+            <div class="field">
+              <label for="g2-work">Work number</label>
+              <input id="g2-work" name="Parent 2 - Work number" type="tel" />
+            </div>
+          </div>
+
+          <h3 class="form-subhead">Additional emergency contact</h3>
+          <div class="fields">
+            <div class="field">
+              <label for="ec-name">Name <span class="req">*</span></label>
+              <input id="ec-name" name="Emergency contact - Name" required />
+            </div>
+            <div class="field">
+              <label for="ec-mobile">Mobile number <span class="req">*</span></label>
+              <input id="ec-mobile" name="Emergency contact - Mobile" type="tel" required />
+            </div>
+            <div class="field">
+              <label for="ec-work">Work number</label>
+              <input id="ec-work" name="Emergency contact - Work number" type="tel" />
+            </div>
+          </div>
+
+          <h3 class="form-subhead">Medical aid details</h3>
+          <div class="fields">
+            <div class="field">
+              <label for="ma-name">Medical aid name</label>
+              <input id="ma-name" name="Medical aid - Name" />
+            </div>
+            <div class="field">
+              <label for="ma-number">Membership number</label>
+              <input id="ma-number" name="Medical aid - Membership number" />
+            </div>
+            <div class="field">
+              <label for="ma-member">Main member</label>
+              <input id="ma-member" name="Medical aid - Main member" />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 4. Terms -->
+        <fieldset class="form-section">
+          <legend><span class="form-section__num">4</span> Please be aware of the following</legend>
+          <ul class="terms-list">
+            <li>Aftercare fees are paid upfront.</li>
+            <li>Learners enrolled for aftercare will be required to pay the full monthly fees even if they are absent on specific days, as staff and facilities remain available.</li>
+            <li>A fee of R1 200 per learner per month.</li>
+            <li>Ad-hoc attendance will be invoiced at the end of each month at R100 per afternoon.</li>
+            <li>An additional fee of R50 per half an hour or part thereof will be invoiced if a learner is collected after 18h00.</li>
+            <li>Aftercare agreements are signed, and one month's notice will apply.</li>
+          </ul>
+          <label class="choice choice--agree"><input type="checkbox" name="Agreed - Aftercare terms" value="Yes" required /> I have read and agree to the aftercare terms above. <span class="req">*</span></label>
+        </fieldset>
+
+        <!-- 5. Sign -->
+        <fieldset class="form-section">
+          <legend><span class="form-section__num">5</span> Sign and submit</legend>
+          <div class="fields">
+            <div class="field">
+              <label for="s-name">Full name of parent responsible for payment <span class="req">*</span></label>
+              <input id="s-name" name="Signed by" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="s-date">Date</label>
+              <input id="s-date" name="Date signed" type="date" data-today readonly />
+            </div>
+          </div>
+          <label class="choice choice--agree"><input type="checkbox" name="Electronic signature" value="Yes" required /> I confirm that typing my name above serves as my signature on this agreement. <span class="req">*</span></label>
+          <label class="choice choice--agree"><input type="checkbox" name="POPIA consent" value="Yes" required /> I consent to Ausome Learning Minds collecting and using this personal information for aftercare administration. <span class="req">*</span></label>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--blue">Submit aftercare form</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </fieldset>
+      </form>
+
+      <div class="form-success" hidden tabindex="-1">
+        <h2>Thank you! Your aftercare form has been sent.</h2>
+        <p>We'll be in touch soon. If you have any questions, call us on <a href="tel:+27649097710">064 909 7710</a>.</p>
+        <a href="index.html" class="btn btn--yellow">Back to home</a>
+      </div>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <h3>Ausome Learning Minds</h3>
+            <p>Home-based schooling and tutoring that helps every child learn, grow and thrive.</p>
+          </div>
+          <div>
+            <h3>Contact</h3>
+            <ul>
+              <li><a href="tel:+27649097710">064 909 7710</a></li>
+              <li><a href="tel:+27645109728">064 510 9728</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Explore</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About us</a></li>
+              <li><a href="programs.html">Programs</a></li>
+              <li><a href="find-us.html">Find us</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="footer__bottom">&copy; <span data-year></span> Ausome Learning Minds. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="src/js/main.js"></script>
+  </body>
+</html>
