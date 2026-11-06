@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ausome Learning Minds — home-based schooling and tutoring that helps every child grow." />
+    <title>Ausome Learning Minds | Home &amp; Tutoring Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/css/main.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <nav class="nav" aria-label="Main">
+          <a href="index.html" class="nav__logo">Ausome <span>Learning</span> Minds</a>
+          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+            <span aria-hidden="true">&#9776;</span><span class="visually-hidden">Menu</span>
+          </button>
+          <ul class="nav__links" id="nav-links">
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="#">Programs</a></li>
+            <li><a href="#">Admission &amp; fees</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="hero__inner">
+          <div>
+            <span class="pill">Play. Explore. Learn.</span>
+            <h1 class="hero__title">Home &amp; Tutoring <em>Center!</em></h1>
+            <p class="hero__lead">Empower your child's future with growth &amp; excellence in every learning experience.</p>
+            <div class="hero__actions">
+              <a href="#" class="btn btn--yellow">Enroll your child</a>
+              <a href="#find-us" class="btn btn--outline">Find us</a>
+            </div>
+            <p class="hero__phones">
+              <a href="tel:+27649097710">064 909 7710</a> / <a href="tel:+27648109728">064 810 9728</a>
+            </p>
+          </div>
+
+          <div class="hero__visual">
+            <img class="shape cube" src="src/images/cube-red.svg" alt="" style="--x: 8%; --y: 2%; --s: 90px; --r: -14deg" />
+            <span class="shape sphere sphere--yellow" style="--x: 70%; --y: 0%; --s: 80px; --d: -2s"></span>
+            <span class="shape sphere sphere--red" style="--x: 4%; --y: 66%; --s: 46px; --d: -4s"></span>
+            <span class="shape sphere sphere--white" style="--x: 86%; --y: 48%; --s: 34px; --d: -1s"></span>
+            <img class="shape cube" src="src/images/cube-yellow.svg" alt="" style="--x: 70%; --y: 70%; --s: 64px; --r: 16deg; --d: -3s" />
+            <span class="shape ring" style="--x: 34%; --y: 82%; --s: 120px; --d: -5s"></span>
+
+            <div class="admission-card">
+              <span class="pill pill--red">NEW</span>
+              <h2>Open admission</h2>
+              <p>Flexible and adaptable home-based learning, tailored to your child's needs.</p>
+              <a href="#">Register now &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section container" aria-labelledby="explore-title">
+        <div class="section-head reveal">
+          <h2 id="explore-title">Everything in one place</h2>
+          <p>Pick a page to explore the centre.</p>
+        </div>
+
+        <div class="tiles reveal">
+          <a href="about.html" class="tile tile--blue">
+            <span class="tile__num">01</span>
+            <h3>About us</h3>
+            <p>Our story, our mission and the way we nurture every child's potential.</p>
+            <span class="tile__link">Read more &rarr;</span>
+            <img class="shape cube" src="src/images/cube-red.svg" alt="" aria-hidden="true" style="--x: 68%; --y: 45%; --s: 90px; --r: 10deg" />
+          </a>
+
+          <a href="#" class="tile tile--yellow">
+            <span class="tile__num">02</span>
+            <h3>Programs</h3>
+            <p>Home-based tutoring, personalised learning and aftercare.</p>
+            <span class="tile__link">Explore &rarr;</span>
+          </a>
+
+          <a href="#" class="tile tile--red">
+            <span class="tile__num">03</span>
+            <h3>Admission &amp; fees</h3>
+            <p>Transparent, flexible fee structures for the 2027 intake.</p>
+            <span class="tile__link">See fees &rarr;</span>
+          </a>
+
+          <a href="#" class="tile tile--map" id="find-us">
+            <div>
+              <span class="tile__num">04</span>
+              <h3>Find us on the map</h3>
+              <p>See where the centre is and get in touch.</p>
+              <span class="tile__link">Open the map &rarr;</span>
+            </div>
+            <svg class="map-art" viewBox="0 0 140 90" aria-hidden="true">
+              <rect width="140" height="90" rx="10" fill="#eef2ff" />
+              <path d="M0 60 Q35 40 70 58 T140 50 V90 H0Z" fill="#c9d6ff" />
+              <path d="M20 0 V90 M0 30 H140" stroke="#fff" stroke-width="6" />
+              <path d="M90 14 a14 14 0 0 1 14 14 c0 11 -14 26 -14 26 s-14 -15 -14 -26 a14 14 0 0 1 14 -14z" fill="#e3263f" />
+              <circle cx="90" cy="28" r="5" fill="#fff" />
+            </svg>
+          </a>
+
+          <a href="#" class="resources">
+            <strong>Parent Resources</strong>
+            <span>Workshops, downloadable guides, blog and articles</span>
+            <em>Browse &rarr;</em>
+          </a>
+        </div>
+      </section>
+
+      <section class="section container" aria-labelledby="day-title">
+        <div class="split reveal">
+          <div>
+            <span class="pill">Watch</span>
+            <h2 id="day-title">See a day at the centre</h2>
+            <p>[One or two lines about what the video shows.]</p>
+          </div>
+
+          <div class="media">
+            <div class="video-card">
+              <div class="video-card__screen">
+                <span class="video-card__label">[Your video here]</span>
+                <img class="shape cube" src="src/images/cube-yellow.svg" alt="" aria-hidden="true" style="--x: 10%; --y: 60%; --s: 56px; --r: 20deg" />
+                <span class="shape sphere sphere--red" aria-hidden="true" style="--x: 82%; --y: 8%; --s: 44px; --d: -2s"></span>
+                <button class="play-btn" type="button" aria-label="Play video">
+                  <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="currentColor" /></svg>
+                </button>
+              </div>
+              <div class="video-card__bar"><span>Play</span><i></i></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container" aria-labelledby="mission-title">
+        <div class="mission reveal">
+          <div class="mission__art" aria-hidden="true">
+            <span class="shape sphere sphere--white" style="--x: 20%; --y: 0%; --s: 90px"></span>
+            <span class="shape ring ring--dark" style="--x: 0%; --y: 60%; --s: 150px; --d: -3s"></span>
+          </div>
+          <div>
+            <h2 id="mission-title">Our Mission</h2>
+            <p>To empower every child to reach their full potential by fostering a love for learning, building confidence, and providing an education that caters to their unique strengths and challenges.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <h3>Ausome Learning Minds</h3>
+            <p>Home-based schooling and tutoring that helps every child learn, grow and thrive.</p>
+          </div>
+          <div>
+            <h3>Contact</h3>
+            <ul>
+              <li><a href="tel:+27649097710">064 909 7710</a></li>
+              <li><a href="tel:+27648109728">064 810 9728</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Explore</h3>
+            <ul>
+              <li><a href="about.html">About us</a></li>
+              <li><a href="#">Programs</a></li>
+              <li><a href="#">Admission &amp; fees</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="footer__bottom">&copy; <span data-year></span> Ausome Learning Minds. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="src/js/main.js"></script>
+  </body>
+</html>
