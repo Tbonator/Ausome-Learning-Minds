@@ -12,6 +12,10 @@ const server = app.listen(config.port,config.host,() => {
   if (!config.adminPasswordHash) console.log('Owner login is not configured. Run npm run admin:password to set it up.');
   if (config.mailMode === 'disabled') console.log('Local preview: email delivery is disabled; applications are still saved.');
 });
+// Bound slow/incomplete requests instead of holding connections for minutes.
+server.headersTimeout = 15000;
+server.requestTimeout = 30000;
+server.keepAliveTimeout = 5000;
 const timer = setInterval(() => pumpMail().catch(() => console.warn('Email queue will retry.')),60000);
 timer.unref();
 pumpMail().catch(() => console.warn('Email queue will retry.'));

@@ -1,6 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {randomBytes,randomUUID,scryptSync} from 'node:crypto';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import {createApp} from '../server/app.mjs';
 import {createStore} from '../server/store.mjs';
 import {definitions} from '../server/validation.mjs';
@@ -24,9 +27,9 @@ function validFields(kind) {
   }))};
 }
 
-async function setup(sendMail = null) {
+async function setup(sendMail = null,options = {}) {
   const store = createStore(':memory:',randomBytes(32));
-  const {app,pumpMail} = createApp({store,config,sendMail,logger,rateLimits:false});
+  const {app,pumpMail} = createApp({store,config:{...config,...options.config},sendMail,logger,rateLimits:options.rateLimits ?? false});
   const server = app.listen(0,'127.0.0.1');
   await new Promise(resolve => server.once('listening',resolve));
   const base = `http://127.0.0.1:${server.address().port}`;
@@ -163,5 +166,76 @@ test('expired owner sessions cannot read applications',async () => {
     const session = await context.login();
     context.store.db.prepare('UPDATE sessions SET expires=?').run(Date.now()-1);
     assert.equal((await context.request('/api/staff/applications',{headers:{cookie:session.cookie}})).status,401);
+  } finally {await context.close();}
+});
+
+test('unknown and inherited object names cannot select an application definition',async () => {
+  const context = await setup();
+  try {
+    for (const kind of ['unknown','constructor','__proto__','toString']) {
+      const response = await context.submit(kind,{});
+      assert.equal(response.status,404);
+      assert.doesNotMatch(await response.text(),/TypeError|stack|file:\/\//);
+    }
+    assert.equal(context.store.list().length,0);
+  } finally {await context.close();}
+});
+
+test('admin pages and APIs exclude third-party scripts and caching, including encoded page names',async () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(),'alm-security-pages-'));
+  const pages = ['admin.html','applications-admin.html','index.html','apply.html','aftercare.html'];
+  for (const page of pages) fs.writeFileSync(path.join(directory,page),'<!doctype html><title>Security fixture</title>');
+  const context = await setup(null,{config:{staticDir:directory}});
+  try {
+    for (const pathname of ['/admin.html','/applications-admin.html','/applications-admin%2ehtml','/api/health']) {
+      const response = await context.request(pathname);
+      const csp = response.headers.get('content-security-policy');
+      assert.match(csp,/script-src 'self';/);
+      assert.doesNotMatch(csp,/tiktok|unsafe-eval|unsafe-inline/);
+      assert.equal(response.headers.get('cache-control'),'no-store');
+      assert.equal(response.headers.get('referrer-policy'),'no-referrer');
+    }
+    const publicPage = await context.request('/index.html');
+    assert.match(publicPage.headers.get('content-security-policy'),/https:\/\/www\.tiktok\.com/);
+    for (const formPath of ['/apply.html','/aftercare.html']) {
+      const formPage = await context.request(formPath);
+      assert.match(formPage.headers.get('content-security-policy'),/script-src 'self';/);
+    }
+  } finally {await context.close(); for (const page of pages) fs.unlinkSync(path.join(directory,page)); fs.rmdirSync(directory);}
+});
+
+test('forged forwarded addresses do not bypass login throttling when proxy trust is disabled',async () => {
+  const context = await setup(null,{rateLimits:true});
+  const originalError = console.error;
+  // This test deliberately supplies a forged header; the limiter's configuration warning is expected.
+  console.error = (...args) => {if (args[0]?.code !== 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR') originalError(...args);};
+  try {
+    for (let index = 0; index < 6; index++) {
+      const response = await context.request('/api/staff/login',{method:'POST',headers:{'Content-Type':'application/json','X-Forwarded-For':`192.0.2.${index+1}`},body:JSON.stringify({username:'owner',password:'incorrect'})});
+      assert.equal(response.status,index < 5 ? 401 : 429);
+    }
+  } finally {console.error = originalError; await context.close();}
+});
+
+test('SQL metacharacters in learner names are stored as data without changing tables',async () => {
+  const context = await setup();
+  try {
+    const name="Sample'); DROP TABLE applications; --";
+    const response = await context.submit('school',{...validFields('school'),'Learner - Full names':name});
+    assert.equal(response.status,201);
+    const record = context.store.get((await response.json()).reference);
+    assert.ok(record.document.learner.startsWith(name));
+    assert.equal(context.store.list().length,1);
+    assert.ok(context.store.db.prepare("SELECT name FROM sqlite_master WHERE name='sessions'").get());
+  } finally {await context.close();}
+});
+
+test('production owner cookies use Secure as well as HttpOnly and SameSite',async () => {
+  const context = await setup(null,{config:{production:true}});
+  try {
+    const response = await context.request('/api/staff/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:'owner',password})});
+    assert.equal(response.status,200);
+    assert.match(response.headers.get('set-cookie'),/; Secure;/);
+    assert.match(response.headers.get('set-cookie'),/HttpOnly/);
   } finally {await context.close();}
 });

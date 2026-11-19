@@ -9,7 +9,7 @@ for (const args of [['scripts/generate-form-definitions.mjs'],['node_modules/vit
   if (result.status !== 0) throw new Error('Build failed. No deployment package was created.');
 }
 const files = [
-  'app.cjs','package.json','package-lock.json','.env.example',
+  'app.cjs','package.json','package-lock.json','.env.example','SECURITY_REVIEW.md',
   'server/app.mjs','server/auth.mjs','server/config.mjs','server/form-definitions.json','server/index.mjs',
   'server/mailer.mjs','server/pdf.mjs','server/store.mjs','server/validation.mjs','server/README.md',
   'src/js/application-pdf.js','src/fonts/Lato-Regular.ttf','src/fonts/Lato-Bold.ttf','src/fonts/OFL.txt',

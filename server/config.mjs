@@ -5,7 +5,10 @@ import {randomBytes} from 'node:crypto';
 try {process.loadEnvFile();} catch (error) {if (error.code !== 'ENOENT') throw error;}
 
 export function loadConfig(env = process.env) {
+  if (env.NODE_ENV && !['development','production','test'].includes(env.NODE_ENV)) throw new Error('NODE_ENV must be development, production or test.');
   const production = env.NODE_ENV === 'production';
+  const trustProxy = Number(env.TRUST_PROXY || 0);
+  if (!Number.isInteger(trustProxy) || trustProxy < 0 || trustProxy > 5) throw new Error('TRUST_PROXY must be the confirmed number of trusted proxy hops (0-5).');
   const origin = env.PUBLIC_ORIGIN || 'http://127.0.0.1:5173';
   const url = new URL(origin);
   if (url.origin !== origin || (production && url.protocol !== 'https:')) throw new Error('PUBLIC_ORIGIN must be an origin without a trailing slash, using HTTPS in production.');
@@ -34,7 +37,7 @@ export function loadConfig(env = process.env) {
   if (![465,587].includes(smtpPort)) throw new Error('SMTP_PORT must be 465 (TLS) or 587 (STARTTLS).');
   return {production,origin,key,dataDir,staticDir,port:Number(env.PORT || 3001),host:env.HOST || '127.0.0.1',
     adminUsername:env.ADMIN_USERNAME || 'owner',adminPasswordHash:env.ADMIN_PASSWORD_HASH || '',
-    trustProxy:Number(env.TRUST_PROXY || 0),mailMode,smtpHost:env.SMTP_HOST,smtpPort,
+    trustProxy,mailMode,smtpHost:env.SMTP_HOST,smtpPort,
     smtpUser:env.SMTP_USER,smtpPass:env.SMTP_PASS,mailFrom:env.MAIL_FROM,applicationEmail:env.APPLICATION_EMAIL,
     attachPdf:env.EMAIL_ATTACH_PDF === 'true'};
 }

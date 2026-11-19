@@ -3,6 +3,11 @@
 School website built with HTML, CSS and vanilla JavaScript, with a Node.js backend
 for school and aftercare applications. Vite builds the public website.
 
+The book favicon uses the school's blue, yellow and red palette. Every public and
+admin page includes SVG, PNG, ICO, and Apple touch variants. Regenerate the PNG/ICO
+files with `node scripts/generate-favicon.mjs` after editing the SVG source.
+See [the security review](SECURITY_REVIEW.md) for findings, fixes and hosting checks.
+
 ## Getting started
 
 ```bash

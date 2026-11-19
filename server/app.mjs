@@ -13,8 +13,8 @@ export function createApp({store,config,sendMail = null,logger = console,rateLim
   const app = express();
   app.disable('x-powered-by');
   app.set('trust proxy',config.trustProxy || false);
-  app.use(helmet({contentSecurityPolicy:{directives:{
-    defaultSrc:["'self'"],scriptSrc:["'self'",'https://www.tiktok.com','https://*.tiktok.com','https://*.tiktokcdn.com'],
+  const publicDirectives = {
+    defaultSrc:["'self'"],scriptSrc:["'self'"],
     styleSrc:["'self'","'unsafe-inline'",'https://fonts.googleapis.com'],
     fontSrc:["'self'",'data:','https://fonts.gstatic.com'],
     imgSrc:["'self'",'data:','blob:','https://raw.githubusercontent.com','https://*.tiktokcdn.com'],
@@ -22,7 +22,28 @@ export function createApp({store,config,sendMail = null,logger = console,rateLim
     frameSrc:['https://www.google.com','https://maps.google.com','https://www.tiktok.com','https://*.tiktok.com'],
     objectSrc:["'none'"],frameAncestors:["'none'"],
     upgradeInsecureRequests:config.production ? [] : null,
-  }},crossOriginEmbedderPolicy:false}));
+  };
+  const publicSecurity = helmet({contentSecurityPolicy:{directives:publicDirectives},crossOriginEmbedderPolicy:false});
+  const embedSecurity = helmet({contentSecurityPolicy:{directives:{...publicDirectives,
+    scriptSrc:["'self'",'https://www.tiktok.com','https://*.tiktok.com','https://*.tiktokcdn.com'],
+  }},crossOriginEmbedderPolicy:false});
+  const ownerSecurity = helmet({referrerPolicy:{policy:'no-referrer'},contentSecurityPolicy:{directives:{
+    defaultSrc:["'self'"],scriptSrc:["'self'"],styleSrc:["'self'"],
+    fontSrc:["'self'",'data:'],imgSrc:["'self'",'data:','blob:','https://raw.githubusercontent.com'],
+    connectSrc:["'self'",'https://api.github.com'],frameSrc:["'none'"],
+    baseUri:["'none'"],formAction:["'self'"],objectSrc:["'none'"],frameAncestors:["'none'"],
+    upgradeInsecureRequests:config.production ? [] : null,
+  }},crossOriginEmbedderPolicy:false});
+  app.use((req,res,next) => {
+    let pathname;
+    try {pathname = path.posix.normalize(decodeURIComponent(req.path)).toLowerCase();}
+    catch {return res.status(400).end();}
+    const protectedPage = ['/admin.html','/applications-admin.html'].includes(pathname);
+    const api = pathname === '/api' || pathname.startsWith('/api/');
+    if (protectedPage || api) res.set('Cache-Control','no-store');
+    const security = protectedPage || api ? ownerSecurity : ['/', '/index.html'].includes(pathname) ? embedSecurity : publicSecurity;
+    security(req,res,next);
+  });
   app.use('/api',(_req,res,next) => {res.set('Cache-Control','no-store'); next();});
   app.use('/api',(req,res,next) => {
     if (['POST','PATCH','DELETE','PUT'].includes(req.method) && req.get('origin') !== config.origin) {

@@ -7,7 +7,7 @@ export class ValidationError extends Error {
 }
 
 export function validateApplication(kind, body, now = new Date()) {
-  const definition = definitions[kind];
+  const definition = Object.hasOwn(definitions,kind) ? definitions[kind] : null;
   if (!definition) throw Object.assign(new Error('Application type not found.'),{status:404});
   if (body['Terms version'] !== definition.version) throw Object.assign(new Error('This application form has changed. Refresh the page and review the current terms before submitting.'),{status:409});
   const errors = {};
