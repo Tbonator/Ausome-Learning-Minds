@@ -28,3 +28,6 @@
 .admin-panel h3 { margin-block: 1.5rem 1rem; }
 button:disabled { cursor: not-allowed; opacity: .55; }
 [hidden] { display: none !important; }
+.application-records { margin-block: 1.5rem; }
+.application-record h3 { margin-top: 0; }
+.application-reference { font-size: .875rem; overflow-wrap: anywhere; color: var(--muted); }

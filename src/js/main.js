@@ -80,6 +80,13 @@ document.querySelectorAll('form[data-online-form]').forEach((form) => {
   const downloadButton = success?.querySelector('[data-download-pdf]');
   const pdfStatus = success?.querySelector('[data-pdf-status]');
   let completedApplication = null;
+  let pendingRequest = null;
+
+  form.addEventListener('input',event => {
+    for (const control of form.elements) {
+      if (control.name === event.target.name) control.setCustomValidity?.('');
+    }
+  });
 
   downloadButton?.addEventListener('click', async () => {
     if (!completedApplication) return;
@@ -133,16 +140,37 @@ document.querySelectorAll('form[data-online-form]').forEach((form) => {
         const {collectApplication} = await import('./application-pdf.js');
         completedApplication = collectApplication(form);
       } catch { completedApplication = null; }
+      const submission = new FormData(form);
+      const serialized = JSON.stringify([...submission.entries()]);
+      if (!pendingRequest || pendingRequest.serialized !== serialized) pendingRequest = {serialized,key:crypto.randomUUID()};
       const res = await fetch(endpoint, {
         method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' },
+        body: submission,
+        headers: { Accept: 'application/json','Idempotency-Key':pendingRequest.key },
       });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok || result.ok !== true || !result.reference) {
+        for (const [name,message] of Object.entries(result.fields || {})) {
+          const input = [...form.elements].find(control => control.name === name);
+          input?.setCustomValidity?.(message);
+        }
+        const invalid = form.querySelector(':invalid');
+        form.inert = false;
+        invalid?.focus();
+        showStatus(result.error || 'The application service is unavailable. Please try again later or call 064 909 7710.',true);
+        return;
+      }
 
       form.reset();
+      pendingRequest = null;
       form.hidden = true;
       if (success) {
+        if (result.reference) {
+          if (completedApplication) completedApplication.reference = result.reference;
+          let reference = success.querySelector('[data-application-reference]');
+          if (!reference) {reference = document.createElement('p'); reference.dataset.applicationReference = ''; success.append(reference);}
+          reference.textContent = `Your application reference: ${result.reference}`;
+        }
         if (downloadButton) downloadButton.hidden = !completedApplication;
         if (pdfStatus && !completedApplication) pdfStatus.textContent = 'Your application was sent. A PDF copy could not be prepared on this device.';
         success.hidden = false;

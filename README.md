@@ -1,15 +1,24 @@
 # Ausome Learning Minds
 
-Minimal starter built with plain HTML, CSS and vanilla JavaScript. [Vite](https://vitejs.dev) is used only as the dev server and build tool.
+School website built with HTML, CSS and vanilla JavaScript, with a Node.js backend
+for school and aftercare applications. Vite builds the public website.
 
 ## Getting started
 
 ```bash
 npm install
-npm run dev      # start local dev server
+npm run admin:password  # choose the owner's private application-inbox password
+npm run dev      # start the website and Node application backend
 npm run build    # production build to dist/
 npm run preview  # preview the production build
 ```
+
+Requires Node 24.13+. See [Node backend setup and deployment](server/README.md)
+for encrypted storage, SMTP, owner login, and cPanel instructions. GitHub Pages
+remains a static presentation; it cannot run the application backend. Local email
+is disabled until SMTP is configured. `npm run preview` previews only static files;
+use `npm start` after building for the complete app at port 3001, with
+`PUBLIC_ORIGIN=http://127.0.0.1:3001` when testing that server locally.
 
 ## Structure
 
@@ -19,6 +28,8 @@ about.html        About page
 programs.html     Programs page
 workshop-events.html  Workshops and events photo gallery
 admin.html        Owner editor for workshop content, photographs and events
+applications-admin.html  Password-protected application inbox (requires Node API)
+server/           Application API, encrypted SQLite store, validation and mail queue
 admission.html    Admission & fees, with links to the online forms
 apply.html        Online application form
 aftercare.html    Online aftercare form
@@ -50,7 +61,7 @@ hidden from the page, not private: content is stored in the public repository.
 The public page reads `src/content/workshops.json`. Vite bundles referenced images
 from `src/images/workshops/`. Uploads and page data are committed together to
 `Tbonator/Ausome-Learning-Minds` on `main`, triggering the existing Pages workflow.
-There is no additional hosted database or server. Removing a photo removes its
+The workshop editor does not use the application database. Removing a photo removes its
 gallery entry; existing image files remain in the repository and its history.
 
 Deploy this feature to `main` before connecting the editor. The owner must create
@@ -78,7 +89,7 @@ use mocked responses and never publish changes to the live repository.
 
 ## Application PDF copies
 
-After Formspree accepts an application or aftercare submission, the success panel
+After the Node backend saves an application or aftercare submission, the success panel
 offers a branded PDF download. It includes every form section, the answers,
 checkbox confirmations, declarations/terms, contact details and page numbers.
 Lato fonts are bundled with their open font licence for accented names. jsPDF
@@ -87,9 +98,10 @@ the application being sent. The completed copy stays only in this tab's memory
 and is cleared when the page closes or reloads. Downloaded files contain personal
 information and should be kept private.
 
-This does not attach a PDF to Formspree emails: automatic PDF delivery needs a
-separate supported upload/automation arrangement. The existing form fields and
-email delivery are unchanged.
+The Node backend also generates the PDF from the saved application for owner
+downloads. SMTP can optionally attach it to the school's notification email;
+otherwise the email includes a reference and a link to the private owner inbox.
+School and aftercare applications no longer use Formspree.
 
 Run `node --test tests/*.test.mjs` for checks. To generate fictional samples and
 render every page for inspection, run `node scripts/preview-application-pdfs.mjs`.
@@ -97,8 +109,9 @@ The resulting `output/pdf/` and `tmp/pdfs/` folders are ignored by Git.
 
 ## Contact page
 
-`contact.html` follows the original Contact page's phone numbers, address, work
-hours (Monday-Friday 07:45-14:00; weekends closed) and public school email,
+`contact.html` follows the original Contact page's phone numbers, address and
+public school email. Owner-updated hours are Monday-Thursday 06:45-13:30,
+Friday 06:45-13:00, aftercare 06:45-18:00, weekends closed. The public email is
 `info@ausomelearningminds.co.za`. Enquiries post to the owner's separate Formspree
 endpoint `https://formspree.io/f/xyewpbnl`. The target notification email is managed
 in Formspree; the public school email is not replaced with the temporary test inbox.

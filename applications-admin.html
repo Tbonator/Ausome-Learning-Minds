@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Applications | Ausome Learning Minds</title>
+    <link rel="stylesheet" href="src/css/main.css" />
+    <link rel="stylesheet" href="src/css/admin.css" />
+  </head>
+  <body class="admin-body">
+    <header class="admin-header"><div class="container admin-bar"><a href="index.html" class="nav__logo">Ausome <span>Learning</span> Minds</a><a href="apply.html">View application form</a></div></header>
+    <main class="container admin-main">
+      <span class="pill">Owner workspace</span>
+      <h1>School &amp; aftercare applications</h1>
+      <p>Review received applications, download their PDFs, and check notification delivery.</p>
+      <section class="admin-panel" id="owner-login-panel" aria-labelledby="login-title">
+        <h2 id="login-title">Sign in</h2>
+        <form id="owner-login" class="fields">
+          <div class="field"><label for="owner-name">Username</label><input id="owner-name" name="username" autocomplete="username" required maxlength="100" /></div>
+          <div class="field"><label for="owner-password">Password</label><input id="owner-password" name="password" type="password" autocomplete="current-password" required maxlength="200" /></div>
+          <div><button type="submit" class="btn btn--yellow">Sign in</button></div>
+        </form>
+      </section>
+      <p class="admin-status" id="owner-status" role="status" aria-live="polite">Sign in to view applications.</p>
+      <section id="owner-inbox" hidden aria-label="Received applications">
+        <div class="admin-bar"><h2>Received applications</h2><div class="admin-inline"><button id="refresh-applications" type="button" class="btn admin-secondary">Refresh</button><button id="owner-logout" type="button" class="btn admin-secondary">Sign out</button></div></div>
+        <div id="application-records" class="application-records"></div>
+        <div class="admin-inline"><button id="previous-records" type="button" class="btn admin-secondary">Previous</button><button id="next-records" type="button" class="btn admin-secondary">Next</button></div>
+      </section>
+      <noscript>Enable JavaScript to sign in and review applications.</noscript>
+    </main>
+    <script type="module" src="src/js/applications-admin.js"></script>
+  </body>
+</html>

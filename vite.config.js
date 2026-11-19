@@ -5,6 +5,12 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   // Relative asset URLs so the build works under any sub-path (e.g. GitHub Pages /Ausome-Learning-Minds/).
   base: './',
+  server: {
+    strictPort: true,
+    proxy: {'/api': 'http://127.0.0.1:3001'},
+    // Vite serves the checkout in development. Never expose backend secrets or records.
+    fs: {deny:['.env','.env.*','**/.git/**','**/.local-data/**','**/server/**','**/*.sqlite','**/*.sqlite-*','**/encryption.key']},
+  },
   build: {
     rollupOptions: {
       input: {
@@ -13,6 +19,7 @@ export default defineConfig({
         programs: resolve(import.meta.dirname, 'programs.html'),
         workshops: resolve(import.meta.dirname, 'workshop-events.html'),
         admin: resolve(import.meta.dirname, 'admin.html'),
+        applicationsAdmin: resolve(import.meta.dirname, 'applications-admin.html'),
         findUs: resolve(import.meta.dirname, 'find-us.html'),
         contact: resolve(import.meta.dirname, 'contact.html'),
         admission: resolve(import.meta.dirname, 'admission.html'),

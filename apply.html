@@ -49,12 +49,13 @@
 
     <main class="section container">
       <!--
-        SUBMISSIONS: set data-endpoint to the URL that receives the form (e.g. a Formspree form URL).
+        SUBMISSIONS: the Node backend receives this form at api/applications/school.
         While it is empty, the form validates but tells the parent to phone instead of sending.
       -->
-      <form class="online-form" data-online-form data-endpoint="https://formspree.io/f/xrpqlpkq" novalidate>
+      <form class="online-form" data-online-form data-endpoint="api/applications/school" novalidate>
         <input type="hidden" name="_subject" value="New application form - Ausome Learning Minds" />
         <input type="hidden" name="Form" value="Application form" />
+        <input type="hidden" name="Terms version" value="7f14d1b19727a810" />
         <div class="visually-hidden" aria-hidden="true">
           <label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
         </div>

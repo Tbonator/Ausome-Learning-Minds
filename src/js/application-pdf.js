@@ -76,6 +76,9 @@ export function createApplicationPdf(application, fonts) {
       font(9, 'normal', palette.muted);
       doc.text('Application received for review. This copy does not confirm placement.', margin, y);
       y += 11;
+      if (application.reference) {
+        font(8,'bold',palette.blue); doc.text(`Reference: ${text(application.reference)}`,margin,y); y += 9;
+      }
     } else y = 39;
   };
   const ensure = height => {

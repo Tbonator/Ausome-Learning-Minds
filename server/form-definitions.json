@@ -1,0 +1,984 @@
+{
+  "school": {
+    "title": "School application",
+    "sections": [
+      {
+        "title": "Learner information",
+        "fields": [
+          {
+            "name": "Learner - Full names",
+            "label": "Full names",
+            "group": "",
+            "type": "text",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Learner - Preferred name",
+            "label": "Preferred name",
+            "group": "",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Learner - Surname",
+            "label": "Surname",
+            "group": "",
+            "type": "text",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Learner - Date of birth",
+            "label": "Date of birth",
+            "group": "",
+            "type": "date",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Learner - ID number",
+            "label": "ID number",
+            "group": "",
+            "type": "text",
+            "required": false,
+            "pattern": "[0-9]{13}",
+            "maxLength": 500
+          },
+          {
+            "name": "Learner - Gender",
+            "label": "Gender",
+            "group": "",
+            "type": "select-one",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500,
+            "options": [
+              "Female",
+              "Male"
+            ]
+          },
+          {
+            "name": "Learner - Religious denomination",
+            "label": "Religious denomination",
+            "group": "",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Learner - Home language",
+            "label": "Home language",
+            "group": "",
+            "type": "text",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Learner - Last school attended",
+            "label": "Last school attended",
+            "group": "",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Learner - Grade to enroll in",
+            "label": "To be enrolled in grade",
+            "group": "",
+            "type": "select-one",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500,
+            "options": [
+              "Grade RR",
+              "Grade R",
+              "Grade 1",
+              "Grade 2",
+              "Grade 3",
+              "Grade 4",
+              "Grade 5",
+              "Grade 6",
+              "Grade 7"
+            ]
+          },
+          {
+            "name": "Learner - Enrollment date",
+            "label": "Enrollment date",
+            "group": "",
+            "type": "date",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          }
+        ]
+      },
+      {
+        "title": "Parent / guardian information",
+        "fields": [
+          {
+            "name": "Father/guardian - Full names",
+            "label": "Full names",
+            "group": "Father / guardian",
+            "type": "text",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Father/guardian - Surname",
+            "label": "Surname",
+            "group": "Father / guardian",
+            "type": "text",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Father/guardian - ID number",
+            "label": "ID number",
+            "group": "Father / guardian",
+            "type": "text",
+            "required": true,
+            "pattern": "[0-9]{13}",
+            "maxLength": 500
+          },
+          {
+            "name": "Father/guardian - Email",
+            "label": "Email address",
+            "group": "Father / guardian",
+            "type": "email",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Father/guardian - Home address",
+            "label": "Home address",
+            "group": "Father / guardian",
+            "type": "textarea",
+            "required": true,
+            "pattern": "",
+            "maxLength": 8000
+          },
+          {
+            "name": "Father/guardian - Postal address",
+            "label": "Postal address",
+            "group": "Father / guardian",
+            "type": "textarea",
+            "required": false,
+            "pattern": "",
+            "maxLength": 8000
+          },
+          {
+            "name": "Father/guardian - Cell",
+            "label": "Cell number",
+            "group": "Father / guardian",
+            "type": "tel",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Father/guardian - Work tel",
+            "label": "Work number",
+            "group": "Father / guardian",
+            "type": "tel",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Father/guardian - Home tel",
+            "label": "Home number",
+            "group": "Father / guardian",
+            "type": "tel",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Father/guardian - Employer",
+            "label": "Name of employer",
+            "group": "Father / guardian",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Father/guardian - Occupation",
+            "label": "Occupation",
+            "group": "Father / guardian",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Mother/guardian - Full names",
+            "label": "Full names",
+            "group": "Mother / guardian (leave blank if not applicable)",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Mother/guardian - Surname",
+            "label": "Surname",
+            "group": "Mother / guardian (leave blank if not applicable)",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Mother/guardian - ID number",
+            "label": "ID number",
+            "group": "Mother / guardian (leave blank if not applicable)",
+            "type": "text",
+            "required": false,
+            "pattern": "[0-9]{13}",
+            "maxLength": 500
+          },
+          {
+            "name": "Mother/guardian - Population group",
+            "label": "Population group",
+            "group": "Mother / guardian (leave blank if not applicable)",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Mother/guardian - Home address",
+            "label": "Home address",
+            "group": "Mother / guardian (leave blank if not applicable)",
+            "type": "textarea",
+            "required": false,
+            "pattern": "",
+            "maxLength": 8000
+          },
+          {
+            "name": "Mother/guardian - Postal address",
+            "label": "Postal address",
+            "group": "Mother / guardian (leave blank if not applicable)",
+            "type": "textarea",
+            "required": false,
+            "pattern": "",
+            "maxLength": 8000
+          },
+          {
+            "name": "Mother/guardian - Cell",
+            "label": "Cell number",
+            "group": "Mother / guardian (leave blank if not applicable)",
+            "type": "tel",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Mother/guardian - Work tel",
+            "label": "Work number",
+            "group": "Mother / guardian (leave blank if not applicable)",
+            "type": "tel",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Mother/guardian - Home tel",
+            "label": "Home number",
+            "group": "Mother / guardian (leave blank if not applicable)",
+            "type": "tel",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Mother/guardian - Email",
+            "label": "Email address",
+            "group": "Mother / guardian (leave blank if not applicable)",
+            "type": "email",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Mother/guardian - Employer",
+            "label": "Name of employer",
+            "group": "Mother / guardian (leave blank if not applicable)",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Mother/guardian - Occupation",
+            "label": "Occupation",
+            "group": "Mother / guardian (leave blank if not applicable)",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          }
+        ]
+      },
+      {
+        "title": "Emergency contact",
+        "fields": [
+          {
+            "name": "Emergency contact - Full names",
+            "label": "Full names",
+            "group": "",
+            "type": "text",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Emergency contact - Surname",
+            "label": "Surname",
+            "group": "",
+            "type": "text",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Emergency contact - Relation to learner",
+            "label": "Relation to learner",
+            "group": "",
+            "type": "text",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Emergency contact - Cell",
+            "label": "Cell number",
+            "group": "",
+            "type": "tel",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Emergency contact - Work tel",
+            "label": "Work number",
+            "group": "",
+            "type": "tel",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Emergency contact - Home tel",
+            "label": "Home number",
+            "group": "",
+            "type": "tel",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          }
+        ]
+      },
+      {
+        "title": "Medical information",
+        "fields": [
+          {
+            "name": "Medical - Medical aid name",
+            "label": "Medical aid name",
+            "group": "",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Medical - Medical aid number",
+            "label": "Medical aid number",
+            "group": "",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Medical - Main member name",
+            "label": "Name of main member",
+            "group": "",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Medical - Main member ID number",
+            "label": "ID number of main member",
+            "group": "",
+            "type": "text",
+            "required": false,
+            "pattern": "[0-9]{13}",
+            "maxLength": 500
+          },
+          {
+            "name": "Medical - Doctor's name",
+            "label": "Doctor's name",
+            "group": "",
+            "type": "text",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Medical - Doctor's tel",
+            "label": "Doctor's tel number",
+            "group": "",
+            "type": "tel",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Medical - Conditions",
+            "label": "Medical conditions",
+            "group": "",
+            "type": "textarea",
+            "required": false,
+            "pattern": "",
+            "maxLength": 8000
+          }
+        ]
+      },
+      {
+        "title": "Payment",
+        "fields": [
+          {
+            "name": "Payment option",
+            "label": "Payment option",
+            "group": "",
+            "type": "radio",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500,
+            "options": [
+              "Monthly",
+              "Per term",
+              "Annually"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Authorisation for collection",
+        "fields": [
+          {
+            "name": "Authorised to collect - Person 1",
+            "label": "Person 1 (name and cell number)",
+            "group": "",
+            "type": "text",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Authorised to collect - Person 2",
+            "label": "Person 2 (name and cell number)",
+            "group": "",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Authorised to collect - Person 3",
+            "label": "Person 3 (name and cell number)",
+            "group": "",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          }
+        ]
+      },
+      {
+        "title": "Terms and conditions",
+        "fields": [
+          {
+            "name": "Agreed - Declarations",
+            "label": "I have read and agree to the Declarations",
+            "group": "",
+            "type": "checkbox",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500,
+            "checkedValue": "Yes"
+          },
+          {
+            "name": "Agreed - Code of conduct",
+            "label": "I have read and agree to the Code of conduct",
+            "group": "",
+            "type": "checkbox",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500,
+            "checkedValue": "Yes"
+          },
+          {
+            "name": "Agreed - Financials",
+            "label": "I have read and agree to the Financials",
+            "group": "",
+            "type": "checkbox",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500,
+            "checkedValue": "Yes"
+          },
+          {
+            "name": "Agreed - Activities, indemnity and medical emergency",
+            "label": "I have read and agree to School activities, Indemnity and Medical emergency",
+            "group": "",
+            "type": "checkbox",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500,
+            "checkedValue": "Yes"
+          },
+          {
+            "name": "Agreed - Termination",
+            "label": "I have read and agree to Termination",
+            "group": "",
+            "type": "checkbox",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500,
+            "checkedValue": "Yes"
+          },
+          {
+            "name": "Agreed - Credit, law, breach and entire agreement",
+            "label": "I have read and agree to Credit information, Applicable law, Breach of contract and Entire agreement",
+            "group": "",
+            "type": "checkbox",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500,
+            "checkedValue": "Yes"
+          }
+        ]
+      },
+      {
+        "title": "Sign and submit",
+        "fields": [
+          {
+            "name": "Signed by",
+            "label": "Full name of parent / legal guardian",
+            "group": "",
+            "type": "text",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Signed at",
+            "label": "Signed at (town / city)",
+            "group": "",
+            "type": "text",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Date signed",
+            "label": "Date",
+            "group": "",
+            "type": "date",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Electronic signature",
+            "label": "I confirm that typing my name above serves as my signature on this contract.",
+            "group": "",
+            "type": "checkbox",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500,
+            "checkedValue": "Yes"
+          },
+          {
+            "name": "POPIA consent",
+            "label": "I consent to Ausome Learning Minds collecting and using this personal information for admission and school administration.",
+            "group": "",
+            "type": "checkbox",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500,
+            "checkedValue": "Yes"
+          }
+        ]
+      }
+    ],
+    "agreements": [
+      {
+        "title": "Declarations",
+        "paragraphs": [
+          "I declare that I am the parent and/or legal guardian of the learner and that the learner and I must comply with the terms and conditions of this contract for the learner to remain enrolled at this school. As a parent/guardian by signing this contract, I confirm that I understand and agree to the rights and duties imposed on me and my child in this contract including the attachments to it and the policies of the School, such as paying fees on time, being responsible for the behavior of my child, and ensuring that my child and I comply with all policies of the school which list is not exhaustive."
+        ]
+      },
+      {
+        "title": "Code of conduct",
+        "paragraphs": [
+          "My child and I undertake to uphold and adhere to the Code of Conduct annexed hereto, failing which I understand my child may be suspended from school. Furthermore, I agree to provide my child with the necessary books and stationery as specified."
+        ]
+      },
+      {
+        "title": "Financials",
+        "paragraphs": [
+          "I agree to pay all the School fees, including admin fees, development fees, extra costs, and any increase in the aforementioned fees, as may be determined by the School from time to time. All such fees are payable in advance by the 3rd of each month. I furthermore understand that fees not paid by the 3rd of each month will result in the child being suspended, and that any School fees paid annually will not be refunded if the child leaves during the school year. I understand and accept that the School may demand payment of the fees from me separately or jointly with any other parent and/or legal guardian whose duty will continue even after the termination of this contract, and that such outstanding monies are payable by me to the School on demand. In the event that the School takes legal action against me, I will be liable for all legal fees on an attorney-client scale, collection costs and commission, interest, and tracing fees. I undertake to immediately inform the school if I do not receive an invoice/statement at the start of the academic year; however, I understand that payment of monthly fees is not subject to the presentation of a statement. I accept that payments made after the 3rd of the month will incur a 3% late-payment charge."
+        ]
+      },
+      {
+        "title": "School activities, indemnity and medical emergency",
+        "paragraphs": [
+          "School activities. I give my consent for my child to take part in any of the activities of the School, including all games, athletics, educational tours, sports tours, and excursions of any nature whatsoever, that the School considers desirable.",
+          "Indemnity. I understand fully and accept that all activities such as those mentioned above shall be undertaken at my child's own risk and I undertake to indemnify the School, the Principal, the members of its staff, and such other people that may be involved with or assisting my child in the pursuit of any of the aforesaid activities, against and from any and/or claims whatsoever or injury to my child in the course of any such activities, provided all reasonable care was taken by those indemnified.",
+          "Medical emergency. I permit the School to consent to any medical procedures that must urgently be performed on my child if neither I nor the emergency person listed above can be reached to make such emergency decisions."
+        ]
+      },
+      {
+        "title": "Termination",
+        "paragraphs": [
+          "I acknowledge and agree that I shall be obliged to give 1 (one) term's prior written notice of my intention to withdraw my child from the School, regardless of what my reason for withdrawal might be, and that in the event of my failing to give such proper written notice in advance, a cancellation fee equal to 3 (three) months school fees shall be payable by me to the School on demand, which cancellation fee I agree is reasonable. The School shall be entitled to terminate the enrolment of my child as a learner at the School under the following circumstances: Summarily, and with immediate effect, if the child is guilty of an offense which, in the sole opinion of the School, renders his/her continued enrolment at the School impossible, in which event I will be liable for the annual school fees. The School reserves the right to remove or suspend my child from the School if fees remain unpaid for more than 60 (sixty) days."
+        ]
+      },
+      {
+        "title": "Credit information, applicable law, breach of contract and entire agreement",
+        "paragraphs": [
+          "Credit information. I hereby consent to the School or a third party appointed by the School performing security checks, including but not limited to criminal checks and credit checks, for the duration of this contract. I furthermore consent to the disclosure and exchange of my personal financial information by the School to a credit bureau or financial institution in accordance with the National Credit Act.",
+          "Applicable law. This contract and any dispute originating from it will be governed and construed within the confines of the Law of South Africa.",
+          "Breach of contract. In the event that I commit a breach of contract of any of the terms of this Agreement, the School may, in its sole discretion: refuse my child entry into the school's premises until the breach has been remedied; and/or claim damages from me; and/or take whatever legal steps that may be necessary.",
+          "Entire agreement. This contract constitutes the whole agreement between the parties relating to the subject matter hereof. No amendment or consensual cancellation of this contract for any provision or term thereof or of any contract, bill of exchange, or other document issued or executed according to or in terms of the contract, and no settlement of any disputes arising under this contract and no extension of time, waiver or relaxation or suspension of any of the provisions of the terms of this contract or any contract, bill of exchange or other document issued according to or in terms of this contract shall be binding unless recorded in writing and signed by the parent/guardian and the School by the parties."
+        ]
+      }
+    ],
+    "version": "7f14d1b19727a810"
+  },
+  "aftercare": {
+    "title": "Aftercare application",
+    "sections": [
+      {
+        "title": "Parent / guardian responsible for fees",
+        "fields": [
+          {
+            "name": "Responsible parent - Full name",
+            "label": "Full name",
+            "group": "",
+            "type": "text",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Responsible parent - Email",
+            "label": "Email address",
+            "group": "",
+            "type": "email",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Responsible parent - Residential address",
+            "label": "Residential address",
+            "group": "",
+            "type": "textarea",
+            "required": true,
+            "pattern": "",
+            "maxLength": 8000
+          }
+        ]
+      },
+      {
+        "title": "Learners to enroll for aftercare",
+        "fields": [
+          {
+            "name": "Child 1 - Full name",
+            "label": "Full name",
+            "group": "Child 1",
+            "type": "text",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Child 1 - Grade",
+            "label": "Grade",
+            "group": "Child 1",
+            "type": "text",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Child 1 - Option",
+            "label": "Child 1 - Option",
+            "group": "Child 1",
+            "type": "radio",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500,
+            "options": [
+              "Including homework",
+              "Excluding homework"
+            ]
+          },
+          {
+            "name": "Child 2 - Full name",
+            "label": "Full name",
+            "group": "Child 2 (optional)",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Child 2 - Grade",
+            "label": "Grade",
+            "group": "Child 2 (optional)",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Child 2 - Option",
+            "label": "Child 2 - Option",
+            "group": "Child 2 (optional)",
+            "type": "radio",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500,
+            "options": [
+              "Including homework",
+              "Excluding homework"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Contact details",
+        "fields": [
+          {
+            "name": "Parent 1 - Name",
+            "label": "Name",
+            "group": "Parent / guardian 1",
+            "type": "text",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Parent 1 - ID number",
+            "label": "ID number",
+            "group": "Parent / guardian 1",
+            "type": "text",
+            "required": true,
+            "pattern": "[0-9]{13}",
+            "maxLength": 500
+          },
+          {
+            "name": "Parent 1 - Mobile",
+            "label": "Mobile number",
+            "group": "Parent / guardian 1",
+            "type": "tel",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Parent 1 - Work number",
+            "label": "Work number",
+            "group": "Parent / guardian 1",
+            "type": "tel",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Parent 2 - Name",
+            "label": "Name",
+            "group": "Parent / guardian 2 (optional)",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Parent 2 - ID number",
+            "label": "ID number",
+            "group": "Parent / guardian 2 (optional)",
+            "type": "text",
+            "required": false,
+            "pattern": "[0-9]{13}",
+            "maxLength": 500
+          },
+          {
+            "name": "Parent 2 - Mobile",
+            "label": "Mobile number",
+            "group": "Parent / guardian 2 (optional)",
+            "type": "tel",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Parent 2 - Work number",
+            "label": "Work number",
+            "group": "Parent / guardian 2 (optional)",
+            "type": "tel",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Emergency contact - Name",
+            "label": "Name",
+            "group": "Additional emergency contact",
+            "type": "text",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Emergency contact - Mobile",
+            "label": "Mobile number",
+            "group": "Additional emergency contact",
+            "type": "tel",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Emergency contact - Work number",
+            "label": "Work number",
+            "group": "Additional emergency contact",
+            "type": "tel",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Medical aid - Name",
+            "label": "Medical aid name",
+            "group": "Medical aid details",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Medical aid - Membership number",
+            "label": "Membership number",
+            "group": "Medical aid details",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Medical aid - Main member",
+            "label": "Main member",
+            "group": "Medical aid details",
+            "type": "text",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          }
+        ]
+      },
+      {
+        "title": "Please be aware of the following",
+        "fields": [
+          {
+            "name": "Agreed - Aftercare terms",
+            "label": "I have read and agree to the aftercare terms above.",
+            "group": "",
+            "type": "checkbox",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500,
+            "checkedValue": "Yes"
+          }
+        ]
+      },
+      {
+        "title": "Sign and submit",
+        "fields": [
+          {
+            "name": "Signed by",
+            "label": "Full name of parent responsible for payment",
+            "group": "",
+            "type": "text",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Date signed",
+            "label": "Date",
+            "group": "",
+            "type": "date",
+            "required": false,
+            "pattern": "",
+            "maxLength": 500
+          },
+          {
+            "name": "Electronic signature",
+            "label": "I confirm that typing my name above serves as my signature on this agreement.",
+            "group": "",
+            "type": "checkbox",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500,
+            "checkedValue": "Yes"
+          },
+          {
+            "name": "POPIA consent",
+            "label": "I consent to Ausome Learning Minds collecting and using this personal information for aftercare administration.",
+            "group": "",
+            "type": "checkbox",
+            "required": true,
+            "pattern": "",
+            "maxLength": 500,
+            "checkedValue": "Yes"
+          }
+        ]
+      }
+    ],
+    "agreements": [
+      {
+        "title": "Aftercare terms",
+        "paragraphs": [
+          "Aftercare fees are paid upfront.",
+          "Learners enrolled for aftercare will be required to pay the full monthly fees even if they are absent on specific days, as staff and facilities remain available.",
+          "A fee of R1 200 per learner per month.",
+          "Ad-hoc attendance will be invoiced at the end of each month at R100 per afternoon.",
+          "An additional fee of R50 per half an hour or part thereof will be invoiced if a learner is collected after 18h00.",
+          "Aftercare agreements are signed, and one month's notice will apply."
+        ]
+      }
+    ],
+    "version": "c75bd86b322f92b6"
+  }
+}
