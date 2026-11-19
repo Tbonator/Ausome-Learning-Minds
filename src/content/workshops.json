@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "title": "Workshops & Events",
+  "intro": "Workshops, open houses and webinars that bring our learning community together.",
+  "galleryTitle": "Moments from our community",
+  "galleryIntro": "Explore our workshops and events in pictures. Select a photograph to open the gallery and browse the collection.",
+  "communityTitle": "Join Our Community",
+  "communityText": "At Ausome Learning Minds, we are more than just educators?we are partners in your child's journey to success. Together, we can unlock the greatness within every child. Discover how we can make a difference in your child's life. Visit us or contact us today!",
+  "featuredPhotoId": "original-5",
+  "photos": [
+    {
+      "id": "original-1",
+      "src": "src/images/workshops/workshop-1.jpeg",
+      "alt": "Workshop attendees seated in a classroom facing a presenter",
+      "caption": "Learning together"
+    },
+    {
+      "id": "original-2",
+      "src": "src/images/workshops/workshop-2.jpeg",
+      "alt": "Two adults and a child beside a blue and white balloon display",
+      "caption": "Families in our community"
+    },
+    {
+      "id": "original-3",
+      "src": "src/images/workshops/workshop-3.jpeg",
+      "alt": "Two adults and a child posing beside the event welcome display",
+      "caption": "Sharing special moments"
+    },
+    {
+      "id": "original-4",
+      "src": "src/images/workshops/workshop-4.jpeg",
+      "alt": "An event attendee beside the Ausome Learning Minds sign and balloons",
+      "caption": "A warm welcome"
+    },
+    {
+      "id": "original-5",
+      "src": "src/images/workshops/workshop-5.jpeg",
+      "alt": "Two event attendees smiling beside the thank-you display",
+      "caption": "Connecting with one another"
+    },
+    {
+      "id": "original-6",
+      "src": "src/images/workshops/workshop-6.jpeg",
+      "alt": "Adults and children gathered for a portrait beside blue and white balloons",
+      "caption": "Celebrating together"
+    },
+    {
+      "id": "original-7",
+      "src": "src/images/workshops/workshop-7.jpeg",
+      "alt": "Attendees taking part in a group session in the classroom",
+      "caption": "A space to learn and connect"
+    },
+    {
+      "id": "original-8",
+      "src": "src/images/workshops/workshop-8.jpeg",
+      "alt": "Two workshop participants seated in the classroom",
+      "caption": "Part of our learning community"
+    }
+  ],
+  "events": []
+}

@@ -11,6 +11,8 @@ export default defineConfig({
         main: resolve(import.meta.dirname, 'index.html'),
         about: resolve(import.meta.dirname, 'about.html'),
         programs: resolve(import.meta.dirname, 'programs.html'),
+        workshops: resolve(import.meta.dirname, 'workshop-events.html'),
+        admin: resolve(import.meta.dirname, 'admin.html'),
         findUs: resolve(import.meta.dirname, 'find-us.html'),
         admission: resolve(import.meta.dirname, 'admission.html'),
         apply: resolve(import.meta.dirname, 'apply.html'),

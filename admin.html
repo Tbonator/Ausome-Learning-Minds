@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Owner Admin | Ausome Learning Minds</title>
+    <link rel="stylesheet" href="src/css/main.css" />
+    <link rel="stylesheet" href="src/css/admin.css" />
+  </head>
+  <body class="admin-body">
+    <header class="admin-header">
+      <div class="container admin-bar">
+        <a href="index.html" class="nav__logo">Ausome <span>Learning</span> Minds</a>
+        <a href="workshop-events.html">View workshop page</a>
+      </div>
+    </header>
+    <main class="container admin-main">
+      <span class="pill">Owner workspace</span>
+      <h1>Workshops &amp; Events</h1>
+      <p>Manage your page, share photographs, and let families know what is coming up.</p>
+
+      <section class="admin-panel" aria-labelledby="access-title">
+        <h2 id="access-title">Connect to publish</h2>
+        <p>You can try the editor below. To save changes to the website, connect with the owner's GitHub access token. Your token is used only for this session and is never saved in browser storage.</p>
+        <form id="connect-form" class="admin-inline">
+          <div class="field"><label for="access-token">GitHub access token</label><input id="access-token" type="password" autocomplete="off" required spellcheck="false" /></div>
+          <button class="btn btn--yellow" type="submit">Connect</button>
+          <button class="btn admin-secondary" id="disconnect" type="button" hidden>Disconnect</button>
+        </form>
+        <p id="connection-state">Preview mode — edits are not saved or published.</p>
+        <details>
+          <summary>Owner setup instructions</summary>
+          <ol>
+            <li>First deploy this admin feature and its content file to the website's <strong>main</strong> branch.</li>
+            <li>In GitHub, create a <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">fine-grained personal access token</a> with an expiry date. Choose only <strong>Tbonator/Ausome-Learning-Minds</strong> and give <strong>Contents: Read and write</strong> access. Keep all other optional permissions off.</li>
+            <li>Enter the token here and connect to load the latest saved page. Do not share your token.</li>
+            <li>Edit, preview, then choose <strong>Publish changes</strong>. The website updates after GitHub Pages finishes its deployment.</li>
+          </ol>
+          <p>The repository's GitHub permissions protect publishing. This editor does not use a shared website password. Use it on your own trusted device and disconnect when finished.</p>
+        </details>
+      </section>
+
+      <p id="admin-status" class="admin-status" role="status" aria-live="polite">Ready to preview.</p>
+      <form id="editor">
+        <fieldset class="admin-panel">
+          <legend>Page text</legend>
+          <div id="page-fields" class="fields"></div>
+          <div class="field"><label for="featured-photo">Featured photograph</label><select id="featured-photo"></select></div>
+        </fieldset>
+
+        <fieldset class="admin-panel">
+          <legend>Upcoming events</legend>
+          <p>Add a title, date, time, venue, description, and optional booking link. Draft events stay hidden. Published events appear from today onward, using South African time.</p>
+          <div id="event-editors"></div>
+          <button id="add-event" type="button" class="btn btn--yellow">Add event</button>
+        </fieldset>
+
+        <fieldset class="admin-panel">
+          <legend>Photo gallery</legend>
+          <p>Upload JPEG, PNG, or WebP photos (up to 8 MB each; 30 MB total per publish). Add a description for visitors who use screen readers. Reorder photos with the Move buttons.</p>
+          <div class="field"><label for="photo-upload">Add photographs</label><input id="photo-upload" type="file" accept="image/jpeg,image/png,image/webp" multiple /></div>
+          <div id="photo-editors" class="admin-photo-grid"></div>
+        </fieldset>
+
+        <div class="admin-actions">
+          <button type="button" id="preview-button" class="btn admin-secondary">Preview changes</button>
+          <button type="submit" id="publish-button" class="btn btn--yellow" disabled>Publish changes</button>
+          <span id="save-state">Changes stay in this tab until published.</span>
+        </div>
+      </form>
+
+      <section id="preview" class="admin-panel" aria-labelledby="preview-title" hidden>
+        <span class="pill">Unpublished preview</span>
+        <h2 id="preview-title"></h2>
+        <p id="preview-intro"></p>
+        <h3>Upcoming events</h3>
+        <div id="preview-events" class="event-grid"></div>
+        <h3 id="preview-gallery-title"></h3>
+        <p id="preview-gallery-intro"></p>
+        <div id="preview-gallery" class="workshop-gallery"></div>
+        <h3 id="preview-community-title"></h3>
+        <p id="preview-community-text"></p>
+      </section>
+      <noscript>This editor needs JavaScript. Please enable it to manage your workshops and events.</noscript>
+    </main>
+    <script type="module" src="src/js/admin.js"></script>
+  </body>
+</html>
