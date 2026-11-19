@@ -14,6 +14,7 @@ export default defineConfig({
         workshops: resolve(import.meta.dirname, 'workshop-events.html'),
         admin: resolve(import.meta.dirname, 'admin.html'),
         findUs: resolve(import.meta.dirname, 'find-us.html'),
+        contact: resolve(import.meta.dirname, 'contact.html'),
         admission: resolve(import.meta.dirname, 'admission.html'),
         apply: resolve(import.meta.dirname, 'apply.html'),
         aftercare: resolve(import.meta.dirname, 'aftercare.html'),

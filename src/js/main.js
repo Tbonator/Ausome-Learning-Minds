@@ -4,6 +4,16 @@
 // script can't load, content simply stays visible.
 document.documentElement.classList.add('js');
 
+// Notices reappear on every page load; dismissal is deliberately not stored.
+document.querySelectorAll('[data-payment-notice]').forEach(notice => {
+  const close = notice.querySelector('[data-close-notice]');
+  close.hidden = false;
+  close.addEventListener('click', () => {
+    notice.hidden = true;
+    document.querySelector('.nav__logo')?.focus({preventScroll:true});
+  });
+});
+
 // Footer year
 document.querySelectorAll('[data-year]').forEach((el) => {
   el.textContent = new Date().getFullYear();
@@ -67,6 +77,22 @@ document.querySelectorAll('form[data-online-form]').forEach((form) => {
   const status = form.querySelector('.form-status');
   const button = form.querySelector('[type="submit"]');
   const success = form.nextElementSibling?.matches('.form-success') ? form.nextElementSibling : null;
+  const downloadButton = success?.querySelector('[data-download-pdf]');
+  const pdfStatus = success?.querySelector('[data-pdf-status]');
+  let completedApplication = null;
+
+  downloadButton?.addEventListener('click', async () => {
+    if (!completedApplication) return;
+    downloadButton.disabled = true;
+    pdfStatus.textContent = 'Preparing your PDF...';
+    try {
+      const {downloadApplicationPdf} = await import('./application-pdf.js');
+      await downloadApplicationPdf(completedApplication);
+      pdfStatus.textContent = 'Your PDF is ready. Keep it in a private place.';
+    } catch {
+      pdfStatus.textContent = 'Your application was sent, but the PDF could not be prepared. Please check your connection and try downloading again.';
+    } finally { downloadButton.disabled = false; }
+  });
 
   form.querySelectorAll('input[data-today]').forEach((input) => {
     input.value = today();
@@ -99,8 +125,14 @@ document.querySelectorAll('form[data-online-form]').forEach((form) => {
     button.disabled = true;
     button.textContent = 'Sending…';
     showStatus('');
+    form.inert = true;
 
     try {
+      // Preserve a copy before resetting the form. PDF generation does not send data anywhere.
+      try {
+        const {collectApplication} = await import('./application-pdf.js');
+        completedApplication = collectApplication(form);
+      } catch { completedApplication = null; }
       const res = await fetch(endpoint, {
         method: 'POST',
         body: new FormData(form),
@@ -111,6 +143,8 @@ document.querySelectorAll('form[data-online-form]').forEach((form) => {
       form.reset();
       form.hidden = true;
       if (success) {
+        if (downloadButton) downloadButton.hidden = !completedApplication;
+        if (pdfStatus && !completedApplication) pdfStatus.textContent = 'Your application was sent. A PDF copy could not be prepared on this device.';
         success.hidden = false;
         success.focus();
         success.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -118,6 +152,7 @@ document.querySelectorAll('form[data-online-form]').forEach((form) => {
     } catch {
       showStatus('Sorry, your form could not be sent. Please try again or call us on 064 909 7710.', true);
     } finally {
+      form.inert = false;
       button.disabled = false;
       button.textContent = label;
     }

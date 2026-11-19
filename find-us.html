@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="src/css/main.css" />
   </head>
   <body>
+    <aside class="payment-notice" data-payment-notice aria-label="Late-payment notice">
+      <div class="container payment-notice__inner">
+        <p><strong>Important: Payments made after the 3rd of the month will incur a <strong>3% late-payment charge</strong>.</strong></p>
+        <button type="button" data-close-notice aria-label="Close late-payment notice" hidden>Close &times;</button>
+      </div>
+    </aside>
     <header class="hero hero--page">
       <div class="container">
         <nav class="nav" aria-label="Main">
@@ -23,7 +29,7 @@
             <li><a href="about.html">About us</a></li>
             <li><a href="programs.html">Programs</a></li>
             <li><a href="admission.html">Admission &amp; fees</a></li>
-            <li><a href="find-us.html" aria-current="page">Find us</a></li>
+            <li><a href="contact.html">Contact us</a></li>
           </ul>
         </nav>
 
@@ -75,8 +81,16 @@
                 <dd><a href="tel:+27649097710">064 909 7710</a> / <a href="tel:+27645109728">064 510 9728</a></dd>
               </div>
               <div>
-                <dt>Opening hours</dt>
-                <dd>[Monday to Friday, opening and closing times]</dd>
+                <dt>Monday &ndash; Thursday</dt>
+                <dd>06:45 &ndash; 13:30</dd>
+              </div>
+              <div>
+                <dt>Friday</dt>
+                <dd>06:45 &ndash; 13:00</dd>
+              </div>
+              <div>
+                <dt>Aftercare</dt>
+                <dd>06:45 &ndash; 18:00</dd>
               </div>
             </dl>
 
@@ -93,7 +107,7 @@
         <div class="cta reveal">
           <h2 id="visit-title">Want to see the centre first?</h2>
           <p>Book a visit, meet our educators and see how we can support your child.</p>
-          <a href="tel:+27649097710" class="btn btn--yellow">Book a visit</a>
+          <a href="https://wa.me/27649097710?text=Hello%2C%20I%20would%20like%20to%20book%20a%20visit%20to%20Ausome%20Learning%20Minds." class="btn btn--yellow" target="_blank" rel="noopener noreferrer">Book a visit</a>
         </div>
       </section>
     </main>
@@ -125,6 +139,7 @@
           <div>
             <h3>Contact</h3>
             <ul>
+              <li><a href="mailto:info@ausomelearningminds.co.za">info@ausomelearningminds.co.za</a></li>
               <li><a href="tel:+27649097710">064 909 7710</a></li>
               <li><a href="tel:+27645109728">064 510 9728</a></li>
             </ul>
@@ -139,6 +154,13 @@
             </ul>
           </div>
         </div>
+        <section class="footer__partners" aria-label="Our partners">
+          <h3>Our partners</h3>
+          <ul>
+            <li>Impaq</li>
+            <li>Abadiah Academy</li>
+          </ul>
+        </section>
         <p class="footer__bottom">&copy; <span data-year></span> Ausome Learning Minds. All rights reserved.</p>
       </div>
     </footer>

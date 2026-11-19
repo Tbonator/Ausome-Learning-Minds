@@ -3,6 +3,8 @@ dist/
 .env
 .DS_Store
 Thumbs.db
+tmp/pdfs/
+output/pdf/
 
 # Reference copies of the paper forms (local only)
 Ausome-Learning-Application-Form-2026.pdf

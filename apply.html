@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="src/css/main.css" />
   </head>
   <body>
+    <aside class="payment-notice" data-payment-notice aria-label="Late-payment notice">
+      <div class="container payment-notice__inner">
+        <p><strong>Important: Payments made after the 3rd of the month will incur a <strong>3% late-payment charge</strong>.</strong></p>
+        <button type="button" data-close-notice aria-label="Close late-payment notice" hidden>Close &times;</button>
+      </div>
+    </aside>
     <header class="hero hero--page">
       <div class="container">
         <nav class="nav" aria-label="Main">
@@ -23,7 +29,7 @@
             <li><a href="about.html">About us</a></li>
             <li><a href="programs.html">Programs</a></li>
             <li><a href="admission.html" aria-current="page">Admission &amp; fees</a></li>
-            <li><a href="find-us.html">Find us</a></li>
+            <li><a href="contact.html">Contact us</a></li>
           </ul>
         </nav>
 
@@ -356,7 +362,7 @@
                 <li>I understand and accept that the School may demand payment of the fees from me separately or jointly with any other parent and/or legal guardian whose duty will continue even after the termination of this contract, and that such outstanding monies are payable by me to the School on demand.</li>
                 <li>In the event that the School takes legal action against me, I will be liable for all legal fees on an attorney-client scale, collection costs and commission, interest, and tracing fees.</li>
                 <li>I undertake to immediately inform the school if I do not receive an invoice/statement at the start of the academic year; however, I understand that payment of monthly fees is not subject to the presentation of a statement.</li>
-                <li>I accept that interest on overdue accounts shall be charged at 15% and that such interest shall be payable by me on demand from the School.</li>
+                <li>I accept that payments made after the 3rd of the month will incur a <strong>3% late-payment charge</strong>.</li>
               </ol>
             </details>
             <label class="choice choice--agree"><input type="checkbox" name="Agreed - Financials" value="Yes" required /> I have read and agree to the Financials <span class="req">*</span></label>
@@ -370,7 +376,7 @@
             <label class="choice choice--agree"><input type="checkbox" name="Agreed - Activities, indemnity and medical emergency" value="Yes" required /> I have read and agree to School activities, Indemnity and Medical emergency <span class="req">*</span></label>
 
             <details>
-              <summary>Termination</summary>
+              <summary><strong>Termination</strong></summary>
               <ol>
                 <li>I acknowledge and agree that I shall be obliged to give 1 (one) term's prior written notice of my intention to withdraw my child from the School, regardless of what my reason for withdrawal might be, and that in the event of my failing to give such proper written notice in advance, a cancellation fee equal to 3 (three) months school fees shall be payable by me to the School on demand, which cancellation fee I agree is reasonable.</li>
                 <li>The School shall be entitled to terminate the enrolment of my child as a learner at the School under the following circumstances:
@@ -381,7 +387,7 @@
                 </li>
               </ol>
             </details>
-            <label class="choice choice--agree"><input type="checkbox" name="Agreed - Termination" value="Yes" required /> I have read and agree to Termination <span class="req">*</span></label>
+            <label class="choice choice--agree"><input type="checkbox" name="Agreed - Termination" value="Yes" required /> I have read and agree to <strong>Termination</strong> <span class="req">*</span></label>
 
             <details>
               <summary>Credit information, applicable law, breach of contract and entire agreement</summary>
@@ -424,6 +430,10 @@
       <div class="form-success" hidden tabindex="-1">
         <h2>Thank you! Your application has been sent.</h2>
         <p>We'll be in touch soon. If you have any questions, call us on <a href="tel:+27649097710">064 909 7710</a>.</p>
+        <div class="receipt-actions">
+          <button type="button" class="btn btn--blue" data-download-pdf>Download application PDF</button>
+          <p data-pdf-status role="status" aria-live="polite">Save a beautifully formatted copy for your records. Available while this page stays open.</p>
+        </div>
         <a href="index.html" class="btn btn--yellow">Back to home</a>
       </div>
     </main>
@@ -455,6 +465,7 @@
           <div>
             <h3>Contact</h3>
             <ul>
+              <li><a href="mailto:info@ausomelearningminds.co.za">info@ausomelearningminds.co.za</a></li>
               <li><a href="tel:+27649097710">064 909 7710</a></li>
               <li><a href="tel:+27645109728">064 510 9728</a></li>
             </ul>
@@ -469,6 +480,13 @@
             </ul>
           </div>
         </div>
+        <section class="footer__partners" aria-label="Our partners">
+          <h3>Our partners</h3>
+          <ul>
+            <li>Impaq</li>
+            <li>Abadiah Academy</li>
+          </ul>
+        </section>
         <p class="footer__bottom">&copy; <span data-year></span> Ausome Learning Minds. All rights reserved.</p>
       </div>
     </footer>

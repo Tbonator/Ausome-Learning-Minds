@@ -9,6 +9,12 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@napi-rs/canvas": "^1.1.1",
+    "jsdom": "^31.0.1",
+    "pdfjs-dist": "^6.5.438",
     "vite": "^8.3.6"
+  },
+  "dependencies": {
+    "jspdf": "^4.2.1"
   }
 }

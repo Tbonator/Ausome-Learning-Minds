@@ -51,6 +51,25 @@ img {
   display: block;
 }
 
+.payment-notice {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--yellow);
+  color: var(--navy);
+  border-bottom: 3px solid var(--red);
+  box-shadow: 0 3px 14px rgb(18 28 78 / 12%);
+}
+
+.payment-notice[hidden] { display: none; }
+.payment-notice__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .8rem; }
+.payment-notice p { margin: 0; font-size: clamp(.9rem, 2vw, 1rem); font-weight: 700; }
+.payment-notice strong { font-weight: 900; }
+.payment-notice button { flex: 0 0 auto; min-width: 44px; min-height: 44px; padding: .4rem .7rem; border: 2px solid var(--navy); border-radius: var(--radius-sm); background: transparent; color: var(--navy); font: inherit; font-weight: 700; cursor: pointer; }
+.payment-notice button[hidden] { display: none; }
+.payment-notice button:hover { background: rgb(255 255 255 / 40%); }
+.payment-notice button:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+
 h1,
 h2,
 h3 {
@@ -1120,6 +1139,54 @@ legend .hint,
 
 /* ---------- Find us / location ---------- */
 
+/* ---------- Contact us ---------- */
+
+.contact-cards .tile { min-height: 260px; }
+.contact-cards .pill { align-self: flex-start; margin-bottom: 1rem; }
+.contact-cards h2 { font-size: 1.65rem; margin-bottom: .75rem; }
+.contact-cards p { font-size: 1rem; }
+.contact-cards a { font-weight: 700; overflow-wrap: anywhere; }
+.contact-cards a + a { margin-top: .35rem; }
+.contact-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 2rem; align-items: start; }
+.contact-form-card { padding: clamp(1.25rem, 4vw, 2.5rem); border: 2px solid var(--sky-200); border-radius: var(--radius-lg); box-shadow: 7px 7px 0 var(--blue); scroll-margin-top: 1.5rem; }
+.contact-form-card h2, .contact-side h2 { font-size: clamp(1.75rem, 3vw, 2.4rem); margin-top: 1rem; }
+.contact-form-card > p { color: var(--muted); }
+.contact-delivery { padding: 1rem; background: var(--sky); border-radius: var(--radius-sm); font-size: .9rem; margin-block: 1.25rem; }
+.contact-form-note { color: var(--muted); font-size: .875rem; }
+.contact-status { margin-bottom: 0; font-weight: 700; color: var(--blue); }
+.contact-status.is-error { color: var(--red-700); }
+.contact-status:empty { display: none; }
+.contact-side { padding: clamp(1.5rem, 4vw, 2.5rem); background: var(--navy); color: white; border-radius: var(--radius-lg); box-shadow: 7px 7px 0 var(--yellow); }
+.contact-side > p { color: #d7ddff; }
+.contact-side h3 { font-size: 1.1rem; margin-top: 1.75rem; }
+.contact-hours { margin: .75rem 0 1.75rem; }
+.contact-hours > div { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; padding: .7rem 0; border-bottom: 1px solid #ffffff30; }
+.contact-hours dd { margin: 0; font-weight: 700; }
+.contact-side-bottom { border-top: 1px solid #ffffff30; margin-top: 2rem; }
+.contact-side-bottom p { color: #d7ddff; }
+.contact-side-bottom a { color: var(--yellow); font-weight: 700; }
+.contact-map { aspect-ratio: 16 / 7; }
+.contact-map .map-card__empty[hidden] { display: none; }
+.contact-map-actions { margin-top: 1.75rem; }
+.site-footer li { overflow-wrap: anywhere; }
+
+@media (max-width: 860px) {
+  .contact-layout { grid-template-columns: 1fr; }
+  .contact-cards { grid-template-columns: 1fr; }
+  .contact-cards .tile { min-height: auto; }
+  .contact-map { aspect-ratio: 4 / 3; }
+}
+
+.receipt-actions {
+  padding: 1.5rem 1rem 0;
+  margin-block: 1.5rem;
+  border-top: 1px solid rgb(18 28 78 / 20%);
+}
+
+.receipt-actions p { font-size: .875rem; }
+.receipt-actions [hidden] { display: none; }
+.receipt-actions button:disabled { opacity: .6; cursor: wait; }
+
 .location {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
@@ -1318,6 +1385,26 @@ legend .hint,
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 0.85rem;
+}
+
+.footer__partners {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgb(255 255 255 / 15%);
+}
+
+.footer__partners h3 { margin: 0; }
+.footer__partners ul { display: flex; flex-wrap: wrap; gap: .75rem; }
+.footer__partners li {
+  padding: .6rem 1rem;
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: var(--radius-sm);
+  color: var(--white);
+  font-weight: 700;
 }
 
 /* ---------- Scroll reveal (only when JS is running) ---------- */

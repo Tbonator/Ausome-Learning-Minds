@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="src/css/main.css" />
   </head>
   <body>
+    <aside class="payment-notice" data-payment-notice aria-label="Late-payment notice">
+      <div class="container payment-notice__inner">
+        <p><strong>Important: Payments made after the 3rd of the month will incur a <strong>3% late-payment charge</strong>.</strong></p>
+        <button type="button" data-close-notice aria-label="Close late-payment notice" hidden>Close &times;</button>
+      </div>
+    </aside>
     <header class="hero hero--page">
       <div class="container">
         <nav class="nav" aria-label="Main">
@@ -23,7 +29,7 @@
             <li><a href="about.html" aria-current="page">About us</a></li>
             <li><a href="programs.html">Programs</a></li>
             <li><a href="admission.html">Admission &amp; fees</a></li>
-            <li><a href="find-us.html">Find us</a></li>
+            <li><a href="contact.html">Contact us</a></li>
           </ul>
         </nav>
 
@@ -132,6 +138,7 @@
           <div>
             <h3>Contact</h3>
             <ul>
+              <li><a href="mailto:info@ausomelearningminds.co.za">info@ausomelearningminds.co.za</a></li>
               <li><a href="tel:+27649097710">064 909 7710</a></li>
               <li><a href="tel:+27645109728">064 510 9728</a></li>
             </ul>
@@ -145,6 +152,13 @@
             </ul>
           </div>
         </div>
+        <section class="footer__partners" aria-label="Our partners">
+          <h3>Our partners</h3>
+          <ul>
+            <li>Impaq</li>
+            <li>Abadiah Academy</li>
+          </ul>
+        </section>
         <p class="footer__bottom">&copy; <span data-year></span> Ausome Learning Minds. All rights reserved.</p>
       </div>
     </footer>
